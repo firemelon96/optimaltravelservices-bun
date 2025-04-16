@@ -1,9 +1,14 @@
-import { Button } from '@/components/ui/button';
+import { About } from '@/components/about';
+import { Hero } from '@/components/hero';
+import { Tours } from '@/components/tours';
 
 export default function Home() {
   return (
-    <div>
-      Hello optimal travel services <Button>CLic m</Button>
-    </div>
+    <>
+      <Hero />
+      <About />
+      <Tours title='Puerto Princesa' type='Day Tour' />
+      <Tours title='Puerto Princesa' type='Package Tour' />
+    </>
   );
 }
