@@ -8,32 +8,6 @@ type Props = {
   params: Promise<{ id: string }>;
 };
 
-type TourType = {
-  id: string;
-  title: string;
-  destination: string;
-  type: string;
-  duration: string;
-  description: string;
-  inclusions: string[];
-  exclusions: string[];
-  itinerary: string[] | { day: number; title: string; activities: string[] }[];
-  pricing: {
-    type: string;
-    amount: number;
-    currency: string;
-    description: string;
-  };
-  schedule: {
-    duration: string;
-    timeSlots: string[];
-    daysAvailable: string[];
-  }[];
-  images: string[];
-  importantNotes: string[];
-  accommodations: string[];
-};
-
 const SinglePage = async ({ params }: Props) => {
   const { id } = await params;
   const tour = getTour(id);

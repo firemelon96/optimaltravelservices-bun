@@ -42,7 +42,7 @@ const categories = [
 
 export const About = () => {
   return (
-    <section id='about' className='my-10 text-center'>
+    <section id='about' className='my-10 text-center px-2'>
       <div className='max-w-3xl mx-auto space-y-5'>
         <h1 className='text-xl text-amber-600 font-semibold'>
           Welcome to Optimal Travel Services

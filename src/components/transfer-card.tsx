@@ -11,7 +11,7 @@ interface CardProps {
   description: string;
 }
 
-export const TourCard = ({
+export const TransferCard = ({
   image,
   title,
   description,
@@ -41,8 +41,8 @@ export const TourCard = ({
               <span className='text-xs'>Starting from</span>
               <p className='text-base font-bold'>12000</p>
             </div>
-            <Button className=''>
-              <Link href={`/${name}/${id}`}>More Details</Link>
+            <Button className='md:w-full xl:w-auto'>
+              <Link href={`/transfers/${id}`}>More Details</Link>
             </Button>
           </div>
         </div>

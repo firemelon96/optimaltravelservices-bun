@@ -13,6 +13,10 @@ import {
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
 import Image from 'next/image';
+import { Button, buttonVariants } from './ui/button';
+import { Menu } from 'lucide-react';
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from './ui/sheet';
+import { cn } from '@/lib/utils';
 
 export const menus = [
   {
@@ -126,19 +130,46 @@ export const menus = [
     ],
   },
   {
+    label: 'Balabac',
+    href: '/balabac',
+    subMenu: [
+      {
+        label: 'Day Tour',
+        href: '#',
+        subMenu: [
+          {
+            label: 'package1',
+            href: '/',
+          },
+        ],
+      },
+      {
+        label: 'Package Tour',
+        href: '#',
+      },
+    ],
+  },
+  {
     label: 'Transfers',
     href: '/transfers',
   },
 ];
 
 export const Navbar = () => {
+  const [isOpen, setIsOpen] = React.useState(false);
+  const openSheet = () => {
+    setIsOpen(true);
+  };
   return (
     <header className='bg-white w-full fixed z-50 shadow-2xs'>
-      <nav className='max-w-3xl mx-auto flex items-center justify-between '>
+      <nav className='max-w-3xl mx-auto flex items-center justify-between px-2'>
         <div className='relative h-12 w-12 shrink-0'>
           <Image src={'/optimal-logo.png'} fill alt='optimal logo' />
         </div>
-        <NavigationMenu>
+        <Button className='md:hidden' onClick={openSheet}>
+          <Menu />
+        </Button>
+        <NavigationMenu className='hidden md:block'>
           <NavigationMenuList>
             {menus.map((menu) => (
               <NavigationMenuItem key={menu.href}>
@@ -169,7 +200,44 @@ export const Navbar = () => {
             ))}
           </NavigationMenuList>
         </NavigationMenu>
+        {/* mobile navigation */}
       </nav>
+      <Sheet onOpenChange={setIsOpen} open={isOpen}>
+        <SheetContent className='p-4 overflow-auto'>
+          <SheetTitle className='tracking-wide text-amber-600 uppercase'>
+            Optimal Travel Services
+          </SheetTitle>
+
+          {menus.map((menu) => (
+            <div key={menu.href}>
+              <p key={menu.href}>{menu.label}</p>
+              {menu.subMenu?.map((menu) => (
+                <div className='pl-2' key={menu.href}>
+                  <p key={menu.href} className='font-medium'>
+                    {menu.label}
+                  </p>
+                  <ul>
+                    {menu.subMenu?.map((menu) => (
+                      <li key={menu.href}>
+                        <Link
+                          className={cn(
+                            buttonVariants({ variant: 'link' }),
+                            'text-muted-foreground'
+                          )}
+                          key={menu.href}
+                          href={menu.href}
+                        >
+                          {menu.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          ))}
+        </SheetContent>
+      </Sheet>
     </header>
   );
 };

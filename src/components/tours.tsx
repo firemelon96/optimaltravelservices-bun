@@ -4,28 +4,29 @@ import { TourCard } from './tour-card';
 
 type Props = {
   title: string;
-  type: 'Day Tour' | 'Package Tour';
+  type: 'day tour' | 'package tour';
 };
 export const Tours = ({ title, type }: Props) => {
   const filteredTour = tours.filter(
     (tour) =>
-      tour.address.toLowerCase() === title.toLowerCase() && tour.type === type
+      tour.destination.toLowerCase() === title.toLowerCase() &&
+      tour.type === type
   );
   return (
     <section className='my-10' id={title}>
       <div className='max-w-3xl mx-auto'>
         <div className='space-y-5'>
-          <HeadingName title={title} />
+          <HeadingName title={`${title} ${type}`} />
 
-          <div className='grid grid-cols-1 gap-2 md:grid-cols-3'>
-            {filteredTour.map((_, i) => (
+          <div className='grid grid-cols-1 gap-2 md:grid-cols-3 px-2'>
+            {filteredTour.map((tour: any) => (
               <TourCard
-                title='Test'
+                title={tour.title}
                 image='https://cdn.palawanwebsolutions.com/elnido-tour-a/7-commandos.avif'
-                address='puerto princesa'
-                description='test descriptions'
-                id='3'
-                key={i}
+                address={tour.destination}
+                description={tour.description}
+                id={tour.id}
+                key={tour.id}
               />
             ))}
           </div>
