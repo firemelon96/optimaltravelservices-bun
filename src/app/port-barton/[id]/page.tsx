@@ -12,9 +12,6 @@ const SinglePage = async ({ params }: Props) => {
   const { id } = await params;
   const tour = getTour(id);
 
-  const isStringArray =
-    tour?.itinerary && typeof tour?.itinerary[0] === 'string';
-
   if (!tour) return notFound();
 
   return (
@@ -32,22 +29,16 @@ const SinglePage = async ({ params }: Props) => {
             <h4 className='text-xl text-amber-600 font-semibold tracking-wide'>
               Itenerary
             </h4>
-            {isStringArray
-              ? tour.itinerary?.map((item: any) => (
-                  <p key={item} className='pl-4'>
-                    {item}
-                  </p>
-                ))
-              : tour.itinerary?.map((item: any) => (
-                  <div key={item.title} className='pl-4'>
-                    <p>{`Day ${item.day}: ${item.title}`}</p>
-                    <ul className='pl-4'>
-                      {item.activities.map((item: any) => (
-                        <li key={item}>{item}</li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
+            {tour.itinerary?.map((item) => (
+              <div key={item.title} className='pl-4'>
+                <p>{`Day ${item.day}: ${item.title}`}</p>
+                <ul className='pl-4'>
+                  {item.activities.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
           <div className='p-3'>
             <h5 className='text-xl text-amber-600 font-semibold tracking-wide'>

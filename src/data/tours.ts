@@ -20,14 +20,20 @@ export const tours = [
       'Tips or gratuities',
     ],
     itinerary: [
-      'Pickup from hotel',
-      'Plaza Cuartel',
-      'Immaculate Conception Cathedral',
-      'Baywalk Park',
-      'Baker’s Hill',
-      'Mitra’s Ranch',
-      'Souvenir/Pasalubong Center',
-      'Drop-off to hotel',
+      {
+        title: 'Destination',
+        activities: [
+          'Pickup from hotel',
+          'Plaza Cuartel',
+          'Immaculate Conception Cathedral',
+          'Baywalk Park',
+          'Baker’s Hill',
+          'Mitra’s Ranch',
+          'Souvenir/Pasalubong Center',
+          'Drop-off to hotel',
+        ],
+        day: 1,
+      },
     ],
     pricing: [
       {
@@ -56,9 +62,9 @@ export const tours = [
         'Sunday',
       ],
     },
-    importantNotes: [],
-    accommodations: [],
-    images: [],
+    importantNotes: [''],
+    // accommodations: [''],
+    images: [''],
   },
   {
     id: 'honda-bay-tour',
@@ -83,13 +89,19 @@ export const tours = [
       'Tips or gratuities',
     ],
     itinerary: [
-      'Pickup from hotel',
-      'Travel to Honda Bay Wharf',
-      'Boat ride to islands',
-      'Starfish Island - snorkeling and beach time',
-      'Luli Island - sandbar and swimming',
-      'Cowrie Island - lunch and leisure',
-      'Return to wharf and transfer back to hotel',
+      {
+        title: 'destinations',
+        activities: [
+          'Pickup from hotel',
+          'Travel to Honda Bay Wharf',
+          'Boat ride to islands',
+          'Starfish Island - snorkeling and beach time',
+          'Luli Island - sandbar and swimming',
+          'Cowrie Island - lunch and leisure',
+          'Return to wharf and transfer back to hotel',
+        ],
+        day: 1,
+      },
     ],
     pricing: [
       {
@@ -117,9 +129,9 @@ export const tours = [
         'Saturday',
       ],
     },
-    accommodations: [],
-    importantNotes: [],
-    images: [],
+    // accommodations: [''],
+    importantNotes: [''],
+    images: [''],
   },
   {
     id: 'underground-river-tour',
@@ -143,14 +155,20 @@ export const tours = [
       'Personal expenses',
     ],
     itinerary: [
-      'Hotel pickup (within Puerto Princesa City proper)',
-      'Travel to Sabang Wharf (~1.5-2 hours)',
-      'Orientation and registration',
-      'Boat ride to Underground River Park',
-      'Cave tour with audio guide',
-      'Buffet lunch in Sabang',
-      'Optional side tours (Mangrove Paddle, Zipline - own expense)',
-      'Return boat and van transfer to hotel',
+      {
+        title: 'destinations',
+        day: 1,
+        activities: [
+          'Hotel pickup (within Puerto Princesa City proper)',
+          'Travel to Sabang Wharf (~1.5-2 hours)',
+          'Orientation and registration',
+          'Boat ride to Underground River Park',
+          'Cave tour with audio guide',
+          'Buffet lunch in Sabang',
+          'Optional side tours (Mangrove Paddle, Zipline - own expense)',
+          'Return boat and van transfer to hotel',
+        ],
+      },
     ],
     pricing: [
       {
@@ -179,9 +197,9 @@ export const tours = [
         'Sunday',
       ],
     },
-    accommodations: [],
-    importantNotes: [],
-    images: [],
+    // accommodations: [''],
+    importantNotes: [''],
+    images: [''],
   },
   //puerto package
   {
@@ -244,39 +262,35 @@ export const tours = [
     pricing: [
       {
         type: 'joiner',
-        minGroupSize: 2,
-        maxGroupSize: 3,
         amount: 4999,
         currency: 'PHP',
         description: 'Joiner package rate per person (2–3 pax)',
       },
       {
         type: 'private',
-        minGroupSize: 4,
-        maxGroupSize: 6,
         amount: 4700,
         currency: 'PHP',
         description: 'Joiner package rate per person (4–6 pax)',
       },
     ],
-    accommodations: [
-      {
-        hotelName: 'Casa Mila Inn',
-        roomType: 'Standard Twin Room',
-        amenities: [
-          'Air conditioning',
-          'Wi-Fi',
-          'Private Bathroom',
-          'Breakfast',
-        ],
-      },
-    ],
-    importantNotes: [],
+    // accommodations: [
+    //   {
+    //     hotelName: 'Casa Mila Inn',
+    //     roomType: 'Standard Twin Room',
+    //     amenities: [
+    //       'Air conditioning',
+    //       'Wi-Fi',
+    //       'Private Bathroom',
+    //       'Breakfast',
+    //     ],
+    //   },
+    // ],
+    importantNotes: [''],
     schedule: {
       availableDates: 'Year-round (subject to weather)',
       preferredStartTime: 'Anytime before 10:00 AM (Day 1)',
     },
-    images: [],
+    images: [''],
   },
   //port barton
   {
@@ -298,12 +312,18 @@ export const tours = [
     ],
     exclusions: [],
     itinerary: [
-      'German Island',
-      'Fantastic Reef',
-      'Turtle Spot',
-      'Paradise Island',
-      'Twin Reef',
-      'Wide Reef',
+      {
+        title: 'destinations',
+        day: 1,
+        activities: [
+          'German Island',
+          'Fantastic Reef',
+          'Turtle Spot',
+          'Paradise Island',
+          'Twin Reef',
+          'Wide Reef',
+        ],
+      },
     ],
     pricing: [
       {
@@ -318,7 +338,7 @@ export const tours = [
       endTime: '4:00 PM',
       availableDays: 'Daily (weather dependent)',
     },
-    accommodations: [],
+    // accommodations: [],
     importantNotes: [
       'Tour is weather dependent — cancellations may occur in case of rough seas.',
       'Eco-Tourism Development Fee (ETDF) may be collected separately if not yet paid.',
@@ -350,11 +370,17 @@ export const tours = [
       'Tips or gratuities',
     ],
     itinerary: [
-      'Big Lagoon (Kayaking and sightseeing)',
-      'Shimizu Island (Snorkeling and lunch)',
-      'Secret Lagoon',
-      'Payong-Payong Beach',
-      'Seven Commandos Beach',
+      {
+        title: 'destinations',
+        day: 1,
+        activities: [
+          'Big Lagoon (Kayaking and sightseeing)',
+          'Shimizu Island (Snorkeling and lunch)',
+          'Secret Lagoon',
+          'Payong-Payong Beach',
+          'Seven Commandos Beach',
+        ],
+      },
     ],
     pricing: [
       {
@@ -364,7 +390,7 @@ export const tours = [
         description: 'Joiner tour per person',
       },
     ],
-    accommodations: [],
+    // accommodations: [],
     importantNotes: [],
     schedule: {
       duration: '7 hours',
@@ -391,11 +417,17 @@ export const tours = [
     ],
     exclusions: ['Environmental fee', 'Towel', 'Tips or gratuities'],
     itinerary: [
-      'Snake Island (sandbar walk)',
-      'Cudugnon Cave',
-      'Cathedral Cave',
-      'Pinagbuyutan Island',
-      'Entalula Beach',
+      {
+        title: 'destinations',
+        day: 1,
+        activities: [
+          'Snake Island (sandbar walk)',
+          'Cudugnon Cave',
+          'Cathedral Cave',
+          'Pinagbuyutan Island',
+          'Entalula Beach',
+        ],
+      },
     ],
     pricing: [
       {
@@ -410,7 +442,7 @@ export const tours = [
       timeSlots: ['9:00 AM - 4:00 PM'],
       daysAvailable: ['Daily'],
     },
-    accommodations: [],
+    // accommodations: [],
     importantNotes: [],
     images: [],
   },
@@ -432,11 +464,17 @@ export const tours = [
     ],
     exclusions: ['Environmental fee', 'Towel', 'Tips or gratuities'],
     itinerary: [
-      'Secret Beach (via swim-through entrance)',
-      'Hidden Beach',
-      'Matinloc Shrine',
-      'Tapiutan Island',
-      'Helicopter Island',
+      {
+        title: 'destinations',
+        day: 1,
+        activities: [
+          'Secret Beach (via swim-through entrance)',
+          'Hidden Beach',
+          'Matinloc Shrine',
+          'Tapiutan Island',
+          'Helicopter Island',
+        ],
+      },
     ],
     pricing: [
       {
@@ -451,7 +489,7 @@ export const tours = [
       timeSlots: ['9:00 AM - 4:00 PM'],
       daysAvailable: ['Daily'],
     },
-    accommodations: [],
+    // accommodations: [],
     importantNotes: [],
     images: [],
   },
@@ -473,11 +511,17 @@ export const tours = [
     ],
     exclusions: ['Environmental fee', 'Towel', 'Tips or gratuities'],
     itinerary: [
-      'Cadlao Lagoon',
-      'Pasandigan Beach',
-      'Nat-Nat Beach',
-      'Bukal Beach',
-      'Paradise Beach',
+      {
+        title: 'destinations',
+        day: 1,
+        activities: [
+          'Cadlao Lagoon',
+          'Pasandigan Beach',
+          'Nat-Nat Beach',
+          'Bukal Beach',
+          'Paradise Beach',
+        ],
+      },
     ],
     pricing: [
       {
@@ -492,7 +536,7 @@ export const tours = [
       timeSlots: ['9:00 AM - 4:00 PM'],
       daysAvailable: ['Daily'],
     },
-    accommodations: [],
+    // accommodations: [],
     importantNotes: [],
     images: [],
   },
@@ -555,33 +599,29 @@ export const tours = [
     pricing: [
       {
         type: 'joiner',
-        minGroupSize: 2,
-        maxGroupSize: 3,
         amount: 6899,
         currency: 'PHP',
         description: 'Joiner package per person (twin/triple sharing)',
       },
       {
         type: 'private',
-        minGroupSize: 4,
-        maxGroupSize: 6,
         amount: 6700,
         currency: 'PHP',
         description: 'Group rate per person (4–6 pax)',
       },
     ],
-    accommodations: [
-      {
-        hotelName: 'Inngo Hotel El Nido',
-        roomType: 'Standard Room',
-        amenities: [
-          'Air-conditioning',
-          'Private bathroom',
-          'Wi-Fi',
-          'Walking distance to the beach',
-        ],
-      },
-    ],
+    // accommodations: [
+    //   {
+    //     hotelName: 'Inngo Hotel El Nido',
+    //     roomType: 'Standard Room',
+    //     amenities: [
+    //       'Air-conditioning',
+    //       'Private bathroom',
+    //       'Wi-Fi',
+    //       'Walking distance to the beach',
+    //     ],
+    //   },
+    // ],
     importantNotes: [],
     schedule: {
       availableDates: 'Year-round (subject to weather)',
@@ -659,33 +699,29 @@ export const tours = [
     pricing: [
       {
         type: 'joiner',
-        minGroupSize: 2,
-        maxGroupSize: 3,
         amount: 8799,
         currency: 'PHP',
         description: 'Joiner package per person (twin/triple sharing)',
       },
       {
         type: 'private',
-        minGroupSize: 4,
-        maxGroupSize: 6,
         amount: 8500,
         currency: 'PHP',
         description: 'Group rate per person (4–6 pax)',
       },
     ],
-    accommodations: [
-      {
-        hotelName: 'Inngo Hotel El Nido',
-        roomType: 'Standard Room',
-        amenities: [
-          'Air-conditioning',
-          'Private bathroom',
-          'Wi-Fi',
-          'Walking distance to the beach',
-        ],
-      },
-    ],
+    // accommodations: [
+    //   {
+    //     hotelName: 'Inngo Hotel El Nido',
+    //     roomType: 'Standard Room',
+    //     amenities: [
+    //       'Air-conditioning',
+    //       'Private bathroom',
+    //       'Wi-Fi',
+    //       'Walking distance to the beach',
+    //     ],
+    //   },
+    // ],
     importantNotes: [],
     schedule: {
       availableDates: 'Year-round (subject to weather)',
@@ -712,12 +748,18 @@ export const tours = [
     ],
     exclusions: [],
     itinerary: [
-      'Kayangan Lake',
-      'Twin Lagoon',
-      'Barracuda Lake',
-      'Skeleton Wreck',
-      'CYC Beach',
-      'Coral Garden',
+      {
+        title: 'destinations',
+        day: 1,
+        activities: [
+          'Kayangan Lake',
+          'Twin Lagoon',
+          'Barracuda Lake',
+          'Skeleton Wreck',
+          'CYC Beach',
+          'Coral Garden',
+        ],
+      },
     ],
     pricing: [
       {
@@ -732,7 +774,7 @@ export const tours = [
       endTime: '4:00 PM',
       availableDays: 'Daily',
     },
-    accommodations: [],
+    // accommodations: [],
     importantNotes: [],
     images: [],
   },
@@ -752,7 +794,13 @@ export const tours = [
       'Entrance fees',
     ],
     exclusions: [],
-    itinerary: ['Malcapuya Island', 'Banana Island', 'Bulog Dos Island'],
+    itinerary: [
+      {
+        title: 'destinations',
+        day: 1,
+        activities: ['Malcapuya Island', 'Banana Island', 'Bulog Dos Island'],
+      },
+    ],
     pricing: [
       {
         type: 'joiner',
@@ -767,7 +815,7 @@ export const tours = [
       availableDays: 'Daily',
     },
     images: [],
-    accommodations: [],
+    // accommodations: [],
     importantNotes: [],
   },
   {
@@ -788,9 +836,15 @@ export const tours = [
     ],
     exclusions: [],
     itinerary: [
-      'Lusong Gunboat Wreck',
-      'Lusong Coral Garden',
-      'East Tangat Wreck',
+      {
+        title: 'destinations',
+        day: 1,
+        activities: [
+          'Lusong Gunboat Wreck',
+          'Lusong Coral Garden',
+          'East Tangat Wreck',
+        ],
+      },
     ],
     pricing: [
       {
@@ -805,7 +859,7 @@ export const tours = [
       endTime: '3:30 PM',
       availableDays: 'Daily',
     },
-    accommodations: [],
+    // accommodations: [],
     importantNotes: [],
     images: [],
   },
@@ -826,10 +880,16 @@ export const tours = [
     ],
     exclusions: [],
     itinerary: [
-      'Calauit Safari Park',
-      'Malbato Church',
-      'Buluang Floating Restaurant',
-      'Concepcion Falls',
+      {
+        title: 'destinations',
+        day: 1,
+        activities: [
+          'Calauit Safari Park',
+          'Malbato Church',
+          'Buluang Floating Restaurant',
+          'Concepcion Falls',
+        ],
+      },
     ],
     pricing: [
       {
@@ -845,7 +905,7 @@ export const tours = [
       availableDays: 'Daily',
     },
     images: [],
-    accommodations: [],
+    // accommodations: [],
     importantNotes: [],
   },
   //coron package
@@ -909,34 +969,30 @@ export const tours = [
     pricing: [
       {
         type: 'joiner',
-        minGroupSize: 2,
-        maxGroupSize: 3,
         amount: 7799,
         currency: 'PHP',
         description: 'Joiner package per person (twin/triple sharing)',
       },
       {
         type: 'private',
-        minGroupSize: 4,
-        maxGroupSize: 6,
         amount: 7400,
         currency: 'PHP',
         description: 'Group rate per person (4–6 pax)',
       },
     ],
-    accommodations: [
-      {
-        hotelName: 'Island Boutique Hotel Coron',
-        roomType: 'Standard Room',
-        amenities: [
-          'Air-conditioned room',
-          'Private bathroom',
-          'Free Wi-Fi',
-          'Breakfast included',
-          'Walking distance to Coron town proper',
-        ],
-      },
-    ],
+    // accommodations: [
+    //   {
+    //     hotelName: 'Island Boutique Hotel Coron',
+    //     roomType: 'Standard Room',
+    //     amenities: [
+    //       'Air-conditioned room',
+    //       'Private bathroom',
+    //       'Free Wi-Fi',
+    //       'Breakfast included',
+    //       'Walking distance to Coron town proper',
+    //     ],
+    //   },
+    // ],
     importantNotes: [],
     schedule: {
       availableDates: 'Year-round (weather permitting)',
@@ -1014,34 +1070,30 @@ export const tours = [
     pricing: [
       {
         type: 'joiner',
-        minGroupSize: 2,
-        maxGroupSize: 3,
         amount: 10299,
         currency: 'PHP',
         description: 'Joiner package per person (twin/triple sharing)',
       },
       {
         type: 'private',
-        minGroupSize: 4,
-        maxGroupSize: 6,
         amount: 9999,
         currency: 'PHP',
         description: 'Group rate per person (4–6 pax)',
       },
     ],
-    accommodations: [
-      {
-        hotelName: 'Island Boutique Hotel Coron',
-        roomType: 'Standard Room',
-        amenities: [
-          'Air-conditioned room',
-          'Private bathroom',
-          'Free Wi-Fi',
-          'Daily breakfast',
-          'Walking distance to restaurants and shops',
-        ],
-      },
-    ],
+    // accommodations: [
+    //   {
+    //     hotelName: 'Island Boutique Hotel Coron',
+    //     roomType: 'Standard Room',
+    //     amenities: [
+    //       'Air-conditioned room',
+    //       'Private bathroom',
+    //       'Free Wi-Fi',
+    //       'Daily breakfast',
+    //       'Walking distance to restaurants and shops',
+    //     ],
+    //   },
+    // ],
     importantNotes: [],
     schedule: {
       availableDates: 'Year-round (subject to weather conditions)',
@@ -1073,12 +1125,18 @@ export const tours = [
       'Tips or gratuities',
       'Travel insurance',
     ],
-    destinations: [
-      'Onuk Island (aka Onuk/Omar Island)',
-      'Candaraman Sandbar',
-      'Patawan Island',
-      'Mansalangan Sandbar',
-      'Canibungan Island',
+    itinerary: [
+      {
+        title: 'destinations',
+        day: 1,
+        activities: [
+          'Onuk Island (aka Onuk/Omar Island)',
+          'Candaraman Sandbar',
+          'Patawan Island',
+          'Mansalangan Sandbar',
+          'Canibungan Island',
+        ],
+      },
     ],
     pricing: [
       {
@@ -1089,8 +1147,6 @@ export const tours = [
       },
       {
         type: 'private',
-        minGroupSize: 4,
-        maxGroupSize: 6,
         amount: 14000,
         currency: 'PHP',
         description: 'Private boat (up to 6 pax)',
@@ -1138,22 +1194,19 @@ export const tours = [
       {
         day: 1,
         title: 'Arrival & Transfer',
-        description:
+        activities: [
           'Land transfer from Rio Tuba to Balabac port. Meet & greet. Settle into accommodation. Light island hopping if time allows.',
+        ],
       },
       {
         day: 2,
         title: 'Island Hopping Day 1',
-        destinations: [
-          'Onuk Island',
-          'Canibungan Island',
-          'Mansalangan Sandbar',
-        ],
+        activities: ['Onuk Island', 'Canibungan Island', 'Mansalangan Sandbar'],
       },
       {
         day: 3,
         title: 'Island Hopping Day 2',
-        destinations: [
+        activities: [
           'Patawan Island',
           'Candaraman Island & Sandbar',
           'Silom-Silom Island',
@@ -1162,21 +1215,20 @@ export const tours = [
       {
         day: 4,
         title: 'Departure',
-        description:
+        activities: [
           'Breakfast and check out. Travel back to Rio Tuba and onward to Puerto Princesa.',
+        ],
       },
     ],
     pricing: [
       {
         type: 'joiner',
-        groupSize: 'min 6 pax',
         amount: 8500,
         currency: 'PHP',
         description: 'Group Joiner Rate (per person, min 6 pax)',
       },
       {
         type: 'private',
-        groupSize: '2–4 pax',
         amount: 38000,
         currency: 'PHP',
         description: 'Private Package for 2–4 pax (fixed rate)',
@@ -1217,37 +1269,31 @@ export const tours = [
       {
         day: 1,
         title: 'Arrival & Island Hopping (PM)',
-        description:
-          'Meet-up at Buliluyan port. Arrival in Balabac. Start half-day island hopping in the afternoon (weather/tide permitting).',
-        destinations: ['Canibungan Island', 'Patawan Island'],
+
+        activities: ['Canibungan Island', 'Patawan Island'],
       },
       {
         day: 2,
         title: 'Island Hopping Full Day',
-        destinations: [
-          'Onuk Island',
-          'Mansalangan Sandbar',
-          'Candaraman Island',
-        ],
+        activities: ['Onuk Island', 'Mansalangan Sandbar', 'Candaraman Island'],
       },
       {
         day: 3,
         title: 'Departure',
-        description:
+        activities: [
           'Breakfast, pack up, and transfer back to Rio Tuba. Travel to Puerto Princesa (if applicable).',
+        ],
       },
     ],
     pricing: [
       {
         type: 'joiner',
-        groupSize: 'min 6 pax',
         amount: 7500,
         currency: 'PHP',
         description: 'Group Joiner Rate (per person, min 6 pax)',
       },
       {
         type: 'private',
-        groupSize: '2–4 pax',
         amount: 32000,
         currency: 'PHP',
         description: 'Private Package for 2–4 pax (fixed rate)',

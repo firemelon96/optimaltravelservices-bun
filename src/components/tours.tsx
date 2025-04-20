@@ -19,7 +19,7 @@ export const Tours = ({ title, type }: Props) => {
           <HeadingName title={`${title} ${type}`} />
 
           <div className='grid grid-cols-1 gap-2 md:grid-cols-3 px-2'>
-            {filteredTour.map((tour: any) => (
+            {filteredTour.map((tour) => (
               <TourCard
                 title={tour.title}
                 image='https://cdn.palawanwebsolutions.com/elnido-tour-a/7-commandos.avif'

@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 interface CardProps {
   image: string;
   title: string;
-  address: string;
+
   id: string;
   description: string;
 }
@@ -15,10 +15,10 @@ export const TransferCard = ({
   image,
   title,
   description,
-  address,
+
   id,
 }: CardProps) => {
-  const name = address.toLowerCase().split(',')[0].split(' ').join('-');
+  // const name = address.toLowerCase().split(',')[0].split(' ').join('-');
   return (
     <Card className='p-1'>
       <div className=' w-full gap-2 p-2 space-y-2'>

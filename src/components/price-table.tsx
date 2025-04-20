@@ -3,24 +3,23 @@ import {
   TableBody,
   TableCaption,
   TableCell,
-  TableFooter,
   TableHead,
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
 
-const prices = [
-  {
-    type: 'Joiner',
-    amount: '1200',
-    description: 'Minimum of 2 person',
-  },
-  {
-    type: 'Private',
-    amount: '4500',
-    description: 'Minimum of 2 person',
-  },
-];
+// const prices = [
+//   {
+//     type: 'Joiner',
+//     amount: '1200',
+//     description: 'Minimum of 2 person',
+//   },
+//   {
+//     type: 'Private',
+//     amount: '4500',
+//     description: 'Minimum of 2 person',
+//   },
+// ];
 
 type Prop = {
   pricing: { type: string; amount: number; description: string }[];

@@ -13,7 +13,6 @@ export const Transfer = () => {
               <TransferCard
                 title={transfer.title}
                 image='https://cdn.palawanwebsolutions.com/elnido-tour-a/7-commandos.avif'
-                address={'pueerto'}
                 description={transfer.description}
                 id={transfer.id}
                 key={transfer.id}

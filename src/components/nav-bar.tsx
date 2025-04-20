@@ -15,7 +15,7 @@ import {
 import Image from 'next/image';
 import { Button, buttonVariants } from './ui/button';
 import { Menu } from 'lucide-react';
-import { Sheet, SheetContent, SheetTitle, SheetTrigger } from './ui/sheet';
+import { Sheet, SheetContent, SheetTitle } from './ui/sheet';
 import { cn } from '@/lib/utils';
 
 export const menus = [
