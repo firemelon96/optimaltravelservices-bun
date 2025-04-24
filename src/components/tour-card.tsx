@@ -9,6 +9,12 @@ interface CardProps {
   address: string;
   id: string;
   description: string;
+  pricing: {
+    type: string;
+    amount: number;
+    description: string;
+    currency: string;
+  }[];
 }
 
 export const TourCard = ({
@@ -17,8 +23,10 @@ export const TourCard = ({
   description,
   address,
   id,
+  pricing,
 }: CardProps) => {
   const name = address.toLowerCase().split(',')[0].split(' ').join('-');
+  const initialPrice = pricing[0].amount;
   return (
     <Card className='p-1'>
       <div className=' w-full gap-2 p-2 space-y-2'>
@@ -39,7 +47,7 @@ export const TourCard = ({
           <div className='flex items-center justify-between md:flex-row '>
             <div className=''>
               <span className='text-xs'>Starting from</span>
-              <p className='text-base font-bold'>12000</p>
+              <p className='text-base font-bold'>{initialPrice}</p>
             </div>
             <Button className=''>
               <Link href={`/${name}/${id}`}>More Details</Link>

@@ -1,4 +1,5 @@
 import { tours } from '@/data/tours';
+import { transfers } from '@/data/transfers';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
@@ -8,4 +9,8 @@ export function cn(...inputs: ClassValue[]) {
 
 export function getTour(id: string) {
   return tours.find((tour) => tour.id === id);
+}
+
+export function getTransfer(id: string) {
+  return transfers.find((transfer) => transfer.id === id);
 }

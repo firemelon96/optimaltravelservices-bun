@@ -10,26 +10,30 @@ import {
 import Image from 'next/image';
 import Autoplay from 'embla-carousel-autoplay';
 
-const images = [
-  'https://cdn.palawanwebsolutions.com/elnido-tour-a/7-commandos.avif',
-  'https://cdn.palawanwebsolutions.com/elnido-tour-a/shimizu-island.avif',
-  'https://cdn.palawanwebsolutions.com/elnido-tour-a/secret-lagoon.avif',
-];
+// const images = [
+// 'https://cdn.palawanwebsolutions.com/elnido-tour-a/7-commandos.avif',
+// 'https://cdn.palawanwebsolutions.com/elnido-tour-a/shimizu-island.avif',
+// 'https://cdn.palawanwebsolutions.com/elnido-tour-a/secret-lagoon.avif',
+// ];
 
-export function HeroCarousel() {
+interface Props {
+  images: string[];
+}
+
+export function HeroCarousel({ images }: Props) {
   const plugin = React.useRef(
     Autoplay({ delay: 5000, stopOnInteraction: true })
   );
   return (
     <Carousel
       plugins={[plugin.current]}
-      className=' overflow-hidden'
+      className=' overflow-hidden rounded-md'
       onMouseEnter={plugin.current.stop}
       onMouseLeave={plugin.current.reset}
       opts={{ loop: true }}
     >
       <CarouselContent>
-        {images.map((src, index) => (
+        {images?.map((src, index) => (
           <CarouselItem key={index} className='aspect-video relative'>
             <Image
               src={src}

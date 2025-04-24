@@ -4,7 +4,13 @@ export const Hero = () => {
   return (
     <section id='#'>
       <div className='aspect-video relative'>
-        <HeroCarousel />
+        <HeroCarousel
+          images={[
+            'https://cdn.palawanwebsolutions.com/elnido-tour-a/7-commandos.avif',
+            'https://cdn.palawanwebsolutions.com/elnido-tour-a/shimizu-island.avif',
+            'https://cdn.palawanwebsolutions.com/elnido-tour-a/secret-lagoon.avif',
+          ]}
+        />
 
         <div className='absolute inset-0 bg-amber-600/45 z-30 '></div>
 

@@ -17,6 +17,33 @@ import { Button, buttonVariants } from './ui/button';
 import { Menu } from 'lucide-react';
 import { Sheet, SheetContent, SheetTitle } from './ui/sheet';
 import { cn } from '@/lib/utils';
+import { tours } from '@/data/tours';
+import { transfers } from '@/data/transfers';
+import { expeditions } from '@/data/expeditions';
+
+const splitJoin = (text: string) => {
+  return text.toLowerCase().split(' ').join('-');
+};
+
+const generateMenu = (type: string, destination: string) => {
+  return tours
+    .filter(
+      (tour) =>
+        tour.type.toLowerCase() === type.toLowerCase() &&
+        tour.destination.toLowerCase() === destination.toLowerCase()
+    )
+    .map((tour) => ({
+      label: tour.title,
+      href: `/${splitJoin(tour.destination)}/${tour.id}`,
+    }));
+};
+
+const transferNav = () => {
+  return transfers.map((transfer) => ({
+    label: transfer.title,
+    href: `/transfers/${transfer.id}`,
+  }));
+};
 
 export const menus = [
   {
@@ -26,46 +53,12 @@ export const menus = [
       {
         label: 'Day Tour',
         href: '#',
-        subMenu: [
-          {
-            label: 'package 1',
-            href: '/puerto-princesa/id',
-          },
-          {
-            label: 'package 2',
-            href: '/puerto-princesa/id',
-          },
-          {
-            label: 'package 3 and packagee 4',
-            href: '/puerto-princesa/id',
-          },
-          {
-            label: 'package 4',
-            href: '/puerto-princesa/id',
-          },
-        ],
+        subMenu: generateMenu('day tour', 'puerto princesa'),
       },
       {
         label: 'Package Tour',
         href: '#',
-        subMenu: [
-          {
-            label: 'package 1',
-            href: '/puerto-princesa/id',
-          },
-          {
-            label: 'package 2',
-            href: '/puerto-princesa/id',
-          },
-          {
-            label: 'package 3 and packagee 4',
-            href: '/puerto-princesa/id',
-          },
-          {
-            label: 'package 4',
-            href: '/puerto-princesa/id',
-          },
-        ],
+        subMenu: generateMenu('package tour', 'puerto princesa'),
       },
     ],
   },
@@ -76,16 +69,12 @@ export const menus = [
       {
         label: 'Day Tour',
         href: '#',
-        subMenu: [
-          {
-            label: 'package1',
-            href: '/',
-          },
-        ],
+        subMenu: generateMenu('day tour', 'el nido'),
       },
       {
         label: 'Package Tour',
         href: '#',
+        subMenu: generateMenu('package tour', 'el nido'),
       },
     ],
   },
@@ -96,16 +85,12 @@ export const menus = [
       {
         label: 'Day Tour',
         href: '#',
-        subMenu: [
-          {
-            label: 'package1',
-            href: '/',
-          },
-        ],
+        subMenu: generateMenu('day tour', 'coron'),
       },
       {
         label: 'Package Tour',
         href: '#',
+        subMenu: generateMenu('package tour', 'coron'),
       },
     ],
   },
@@ -116,16 +101,12 @@ export const menus = [
       {
         label: 'Day Tour',
         href: '#',
-        subMenu: [
-          {
-            label: 'package1',
-            href: '/',
-          },
-        ],
+        subMenu: generateMenu('day tour', 'port barton'),
       },
       {
         label: 'Package Tour',
         href: '#',
+        subMenu: generateMenu('package tour', 'port barton'),
       },
     ],
   },
@@ -136,22 +117,33 @@ export const menus = [
       {
         label: 'Day Tour',
         href: '#',
-        subMenu: [
-          {
-            label: 'package1',
-            href: '/',
-          },
-        ],
+        subMenu: generateMenu('day tour', 'balabac'),
       },
       {
         label: 'Package Tour',
         href: '#',
+        subMenu: generateMenu('package tour', 'balabac'),
       },
     ],
   },
   {
     label: 'Transfers',
-    href: '/transfers',
+    href: '',
+    subMenu: [
+      {
+        label: 'Transfer services',
+        href: '/#transfers',
+        subMenu: transferNav(),
+      },
+      {
+        label: 'Expeditions',
+        href: '#',
+        subMenu: expeditions.map((expe) => ({
+          label: expe.title,
+          href: `/expeditions/${expe.id}`,
+        })),
+      },
+    ],
   },
 ];
 
@@ -160,11 +152,14 @@ export const Navbar = () => {
   const openSheet = () => {
     setIsOpen(true);
   };
+
   return (
     <header className='bg-white w-full fixed z-50 shadow-2xs'>
       <nav className='max-w-3xl mx-auto flex items-center justify-between px-2'>
         <div className='relative h-12 w-12 shrink-0'>
-          <Image src={'/optimal-logo.png'} fill alt='optimal logo' />
+          <Link href={'/'}>
+            <Image src={'/optimal-logo.png'} fill alt='optimal logo' />
+          </Link>
         </div>
         <Button className='md:hidden' onClick={openSheet}>
           <Menu />
@@ -254,7 +249,7 @@ const ListItem = ({
       <p className='text-base font-medium leading-none p-2 text-amber-600'>
         {title}
       </p>
-      <div className='grid grid-cols-2'>
+      <div className=''>
         {submenu.map((sub) => (
           <NavigationMenuLink key={sub.label} asChild>
             <ul className='flex gap-2'>

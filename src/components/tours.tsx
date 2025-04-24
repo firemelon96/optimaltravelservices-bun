@@ -21,8 +21,9 @@ export const Tours = ({ title, type }: Props) => {
           <div className='grid grid-cols-1 gap-2 md:grid-cols-3 px-2'>
             {filteredTour.map((tour) => (
               <TourCard
+                pricing={tour.pricing}
                 title={tour.title}
-                image='https://cdn.palawanwebsolutions.com/elnido-tour-a/7-commandos.avif'
+                image={tour.images[0]}
                 address={tour.destination}
                 description={tour.description}
                 id={tour.id}

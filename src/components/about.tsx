@@ -1,11 +1,17 @@
 import {
   Building,
+  Bus,
+  Calendar,
   Handshake,
   MountainSnow,
   Palmtree,
+  Puzzle,
   School,
+  Ticket,
+  Trophy,
 } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem } from './ui/carousel';
+import { FaSuitcase } from 'react-icons/fa';
 
 const categories = [
   {
@@ -35,8 +41,33 @@ const categories = [
   },
   {
     id: '06',
-    label: 'Conference',
-    icon: Handshake,
+    label: 'Conference & Travel Organizing',
+    icon: Calendar,
+  },
+  {
+    id: '07',
+    label: 'Transportation',
+    icon: Bus,
+  },
+  {
+    id: '08',
+    label: 'Sports Travel',
+    icon: Trophy,
+  },
+  {
+    id: '09',
+    label: 'Family Vacation',
+    icon: FaSuitcase,
+  },
+  {
+    id: '10',
+    label: 'Customized Packages',
+    icon: Puzzle,
+  },
+  {
+    id: '11',
+    label: 'Group Discounts',
+    icon: Ticket,
   },
 ];
 

@@ -8,33 +8,6 @@ type Props = {
   params: Promise<{ id: string }>;
 };
 
-// type Itinerary = { day: string; activities: string[]; title: string };
-
-// type TourType = {
-//   id: string;
-//   title: string;
-//   destination: string;
-//   type: string;
-//   duration: string;
-//   description: string;
-//   inclusions: string[];
-//   exclusions: string[];
-//   itinerary: Itinerary[];
-//   pricing: {
-//     type: string;
-//     amount: number;
-//     currency: string;
-//     description: string;
-//   };
-//   schedule: {
-//     duration: string;
-//     timeSlots: string[];
-//     daysAvailable: string[];
-//   };
-//   images: string[];
-//   importantNotes: string[];
-// };
-
 const SinglePage = async ({ params }: Props) => {
   const { id } = await params;
   const tour = getTour(id);
@@ -45,7 +18,7 @@ const SinglePage = async ({ params }: Props) => {
     <section className=''>
       <div className='max-w-3xl mx-auto pt-16'>
         <div className='space-y-3'>
-          <HeroCarousel />
+          <HeroCarousel images={tour.images} />
           <div>
             <h3 className='text-xl text-amber-600 font-semibold tracking-wide'>
               {tour.title}
