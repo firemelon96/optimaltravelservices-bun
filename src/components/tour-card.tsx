@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { formatCurrency } from '@/lib/utils';
 
 interface CardProps {
   image: string;
@@ -47,7 +48,9 @@ export const TourCard = ({
           <div className='flex items-center justify-between md:flex-row '>
             <div className=''>
               <span className='text-xs'>Starting from</span>
-              <p className='text-base font-bold'>{initialPrice}</p>
+              <p className='text-base font-bold'>
+                {formatCurrency(initialPrice)}
+              </p>
             </div>
             <Button className=''>
               <Link href={`/${name}/${id}`}>More Details</Link>

@@ -14,3 +14,12 @@ export function getTour(id: string) {
 export function getTransfer(id: string) {
   return transfers.find((transfer) => transfer.id === id);
 }
+
+export function formatCurrency(price: number) {
+  return Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'PHP',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(price);
+}

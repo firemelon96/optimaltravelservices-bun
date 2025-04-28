@@ -149,8 +149,8 @@ export const menus = [
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
-  const openSheet = () => {
-    setIsOpen(true);
+  const onClose = () => {
+    setIsOpen(false);
   };
 
   return (
@@ -161,7 +161,7 @@ export const Navbar = () => {
             <Image src={'/optimal-logo.png'} fill alt='optimal logo' />
           </Link>
         </div>
-        <Button className='md:hidden' onClick={openSheet}>
+        <Button className='md:hidden' onClick={() => setIsOpen(true)}>
           <Menu />
         </Button>
         <NavigationMenu className='hidden md:block'>
@@ -197,28 +197,29 @@ export const Navbar = () => {
         </NavigationMenu>
         {/* mobile navigation */}
       </nav>
-      <Sheet onOpenChange={setIsOpen} open={isOpen}>
-        <SheetContent className='p-4 overflow-auto'>
+      <Sheet onOpenChange={onClose} open={isOpen}>
+        <SheetContent className='p-4 overflow-y-auto'>
           <SheetTitle className='tracking-wide text-amber-600 uppercase'>
             Optimal Travel Services
           </SheetTitle>
 
           {menus.map((menu) => (
-            <div key={menu.href}>
-              <p key={menu.href}>{menu.label}</p>
+            <div key={menu.label}>
+              <p>{menu.label}</p>
               {menu.subMenu?.map((menu) => (
-                <div className='pl-2' key={menu.href}>
+                <div className='pl-2' key={menu.label}>
                   <p key={menu.href} className='font-medium'>
                     {menu.label}
                   </p>
-                  <ul>
+                  <ul className='w-full'>
                     {menu.subMenu?.map((menu) => (
-                      <li key={menu.href}>
+                      <li className='truncate' key={menu.label}>
                         <Link
                           className={cn(
                             buttonVariants({ variant: 'link' }),
                             'text-muted-foreground'
                           )}
+                          onClick={onClose}
                           key={menu.href}
                           href={menu.href}
                         >

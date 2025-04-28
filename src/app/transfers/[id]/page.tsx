@@ -1,6 +1,6 @@
-import { BookForm } from '@/components/book-form';
+import { BookTransferForm } from '@/components/book-transfer-form';
 import { HeroCarousel } from '@/components/hero-carousel';
-import { PriceTable } from '@/components/price-table';
+import { ScheduleTable } from '@/components/schedule-table';
 import { getTransfer } from '@/lib/utils';
 import { notFound } from 'next/navigation';
 
@@ -18,7 +18,7 @@ const SinglePage = async ({ params }: Props) => {
     <section className=''>
       <div className='max-w-3xl mx-auto pt-16'>
         <div className='space-y-3'>
-          <HeroCarousel images={[]} />
+          <HeroCarousel images={transfer.images} />
           <div>
             <h3 className='text-xl text-amber-600 font-semibold tracking-wide'>
               {transfer.title}
@@ -46,10 +46,10 @@ const SinglePage = async ({ params }: Props) => {
             </ul>
           </div>
           <div className='p-6 border'>
-            <PriceTable pricing={transfer.pricing} />
+            <ScheduleTable schedules={transfer.schedule} />
           </div>
           <div className='max-w-md mx-auto my-10'>
-            <BookForm />
+            <BookTransferForm times={transfer.schedule[0].departures} />
           </div>
         </div>
       </div>

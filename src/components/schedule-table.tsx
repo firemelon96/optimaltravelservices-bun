@@ -23,30 +23,33 @@ import { formatCurrency } from '@/lib/utils';
 // ];
 
 type Prop = {
-  pricing: { type: string; amount: number; description: string }[];
+  schedules: { type: string; departures: string[]; price: number }[];
 };
 
-export const PriceTable = ({ pricing }: Prop) => {
+export const ScheduleTable = ({ schedules }: Prop) => {
   return (
     <Table>
-      <TableCaption>Price Table</TableCaption>
+      <TableCaption>Schedule</TableCaption>
       <TableHeader>
         <TableRow className='font-medium text-xl'>
-          <TableHead className='w-[100px]'>Traveller type</TableHead>
+          <TableHead className=''>Type</TableHead>
+          <TableHead>Departure</TableHead>
           <TableHead className='text-right'>Price</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
-        {pricing.map((price) => (
-          <TableRow key={price.type}>
-            <TableCell className='font-medium'>
-              {price.type}{' '}
-              <span className='text-muted-foreground'>
-                ({price.description})
-              </span>
+        {schedules.map((sched) => (
+          <TableRow key={sched.type}>
+            <TableCell className='font-medium'>{sched.type} </TableCell>
+            <TableCell>
+              <ul>
+                {sched.departures.map((dep) => (
+                  <li key={dep}>{dep}</li>
+                ))}
+              </ul>
             </TableCell>
             <TableCell className='text-right'>
-              {formatCurrency(price.amount)}
+              {formatCurrency(sched.price)}
             </TableCell>
           </TableRow>
         ))}

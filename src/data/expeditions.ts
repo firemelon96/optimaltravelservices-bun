@@ -1,68 +1,77 @@
 export const expeditions = [
   {
-    id: 'elnid-coron-elnido-expedition',
-    title: 'El Nido - Coron - El Nido Expedition',
-    duration_days: 5,
-    start_location: 'El Nido',
-    end_location: 'El Nido',
-    route: [
+    id: 'elnido-coron-expedition-3d2n',
+    title: 'El Nido to Coron Expedition (3 Days 2 Nights)',
+    destination: 'El Nido to Coron (or Vice Versa)',
+    duration: '3 Days 2 Nights',
+    description:
+      'A once-in-a-lifetime adventure sailing between El Nido and Coron! Explore remote islands, hidden lagoons, and pristine beaches, while camping under the stars and immersing in Palawan’s raw beauty.',
+    route: 'El Nido to Coron or Coron to El Nido',
+    inclusions: [
+      'Expedition boat with licensed crew',
+      '2 nights tent camping or native hut accommodation',
+      'All meals during expedition (breakfast, lunch, dinner)',
+      'Drinking water, coffee, and tea',
+      'Use of snorkeling gear',
+      'Island entrance/environmental fees',
+      'Camping gear (tent, mattress, pillow, blanket)',
+      'Tour guide',
+    ],
+    exclusions: [
+      'Land transfers to starting/ending ports (optional add-on)',
+      'Alcoholic drinks and snacks (available for purchase onboard)',
+      'Personal travel insurance',
+      'Tips and gratuities',
+    ],
+    sampleItinerary: [
       {
         day: 1,
-        from: 'El Nido',
-        to: 'Island Stopovers',
-        activities: [
-          'Snorkeling at Tapiutan Island',
-          'Beach time at Matinloc Island',
-          'Camp setup at secluded beach',
-        ],
+        title: 'Departure from El Nido / Coron',
+        description:
+          'Board the expedition boat in the morning. Visit 2–3 islands, snorkeling spots, and beaches. Set up camp on a remote island.',
+        sampleStops: ['Cadlao Lagoon', 'Darocotan Island', 'Cagbatan Island'],
       },
       {
         day: 2,
-        from: 'Island Stopovers',
-        to: 'Linapacan Islands',
-        activities: [
-          'Explore Linapacan lagoons',
-          'Visit remote fishing villages',
-          'Overnight camping under the stars',
-        ],
+        title: 'Full Day Expedition',
+        description:
+          'Continue cruising through Linapacan’s remote gems. Snorkel vibrant reefs and relax on isolated beaches. Camp overnight on another island.',
+        sampleStops: ['Culion Island', 'Ditaytayan Island', 'Malcapuya Island'],
       },
       {
         day: 3,
-        from: 'Linapacan Islands',
-        to: 'Coron',
-        activities: [
-          'Shipwreck snorkeling',
-          'Kayangan Lake visit',
-          'Dinner in Coron town',
-        ],
-      },
-      {
-        day: 4,
-        from: 'Coron',
-        to: 'Island Stopovers',
-        activities: [
-          'Island hopping return route',
-          'Cultural exchange with locals',
-          'Sunset bonfire',
-        ],
-      },
-      {
-        day: 5,
-        from: 'Island Stopovers',
-        to: 'El Nido',
-        activities: [
-          'Breakfast on the beach',
-          'Return boat ride',
-          'Arrival in El Nido',
-        ],
+        title: 'Arrival at Coron / El Nido',
+        description:
+          'Final island hopping. Arrive at Coron town or El Nido by late afternoon. Farewell!',
+        sampleStops: ['Pass Island', 'Coron Bay'],
       },
     ],
-    inclusions: [
-      'Meals and drinks',
-      'Snorkeling gear',
-      'Tents and sleeping bags',
-      'Local guide',
+    pricing: [
+      {
+        type: 'per_person',
+        amount: 14500,
+        currency: 'PHP',
+        description: 'Expedition package (per person)',
+      },
     ],
-    notes: 'Itinerary subject to change depending on weather conditions.',
+    notes: [
+      'Route and stops may vary based on weather and sea conditions.',
+      'No luxury — this is an adventure-style, back-to-basics expedition!',
+      'Electricity is limited; bring power banks and waterproof bags.',
+      'Pack light: quick-dry clothes, swimwear, reef-safe sunscreen, flashlight.',
+    ],
+    options: [
+      {
+        title: 'Private Expeditions',
+        description:
+          'Available for groups (6 pax and above) — customizable route and exclusive boat.',
+      },
+      {
+        title: 'Land Transfer Add-ons',
+        description:
+          'Optional van transfer from Puerto Princesa to El Nido or Coron Airport pickup.',
+      },
+    ],
+    images: [],
   },
 ];

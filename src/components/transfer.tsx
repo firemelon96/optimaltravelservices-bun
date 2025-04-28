@@ -12,10 +12,11 @@ export const Transfer = () => {
             {transfers.map((transfer) => (
               <TransferCard
                 title={transfer.title}
-                image='https://cdn.palawanwebsolutions.com/elnido-tour-a/7-commandos.avif'
+                image={transfer.images[0]}
                 description={transfer.description}
                 id={transfer.id}
                 key={transfer.id}
+                pricing={transfer.pricing}
               />
             ))}
           </div>
