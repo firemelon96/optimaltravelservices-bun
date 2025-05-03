@@ -1,12 +1,33 @@
 import { BookForm } from '@/components/book-form';
 import { HeroCarousel } from '@/components/hero-carousel';
 import { PriceTable } from '@/components/price-table';
+import { tours } from '@/data/tours';
 import { getTour } from '@/lib/utils';
+import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+
+export async function generateStaticParams() {
+  return tours.map(({ id }) => ({ id }));
+}
 
 type Props = {
   params: Promise<{ id: string }>;
 };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { id } = await params;
+  const tour = getTour(id);
+
+  if (!tour) return {};
+
+  return {
+    title: tour.title,
+    description: tour.description,
+    openGraph: {
+      images: [{ url: tour.images[0] }],
+    },
+  };
+}
 
 const SinglePage = async ({ params }: Props) => {
   const { id } = await params;
@@ -17,7 +38,7 @@ const SinglePage = async ({ params }: Props) => {
   return (
     <section className=''>
       <div className='max-w-3xl mx-auto pt-16'>
-        <div className='space-y-3'>
+        <div className='space-y-3 px-2'>
           <HeroCarousel images={tour.images} />
           <div>
             <h3 className='text-xl text-amber-600 font-semibold tracking-wide'>

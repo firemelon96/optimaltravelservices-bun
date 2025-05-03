@@ -23,27 +23,27 @@ export const expeditions = [
       'Personal travel insurance',
       'Tips and gratuities',
     ],
-    sampleItinerary: [
+    itinerary: [
       {
         day: 1,
         title: 'Departure from El Nido / Coron',
         description:
           'Board the expedition boat in the morning. Visit 2–3 islands, snorkeling spots, and beaches. Set up camp on a remote island.',
-        sampleStops: ['Cadlao Lagoon', 'Darocotan Island', 'Cagbatan Island'],
+        activities: ['Cadlao Lagoon', 'Darocotan Island', 'Cagbatan Island'],
       },
       {
         day: 2,
         title: 'Full Day Expedition',
         description:
           'Continue cruising through Linapacan’s remote gems. Snorkel vibrant reefs and relax on isolated beaches. Camp overnight on another island.',
-        sampleStops: ['Culion Island', 'Ditaytayan Island', 'Malcapuya Island'],
+        activities: ['Culion Island', 'Ditaytayan Island', 'Malcapuya Island'],
       },
       {
         day: 3,
         title: 'Arrival at Coron / El Nido',
         description:
           'Final island hopping. Arrive at Coron town or El Nido by late afternoon. Farewell!',
-        sampleStops: ['Pass Island', 'Coron Bay'],
+        activities: ['Pass Island', 'Coron Bay'],
       },
     ],
     pricing: [
@@ -72,6 +72,10 @@ export const expeditions = [
           'Optional van transfer from Puerto Princesa to El Nido or Coron Airport pickup.',
       },
     ],
-    images: [],
+    images: [
+      'https://cdn.palawanwebsolutions.com/expeditions/expedition01.avif',
+      'https://cdn.palawanwebsolutions.com/expeditions/expedition02.avif',
+      'https://cdn.palawanwebsolutions.com/expeditions/expedition03.avif',
+    ],
   },
 ];

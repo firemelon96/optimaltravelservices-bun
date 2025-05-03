@@ -1,12 +1,33 @@
 import { BookTransferForm } from '@/components/book-transfer-form';
 import { HeroCarousel } from '@/components/hero-carousel';
 import { ScheduleTable } from '@/components/schedule-table';
+import { transfers } from '@/data/transfers';
 import { getTransfer } from '@/lib/utils';
+import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+
+export async function generateStaticParams() {
+  return transfers.map(({ id }) => ({ id }));
+}
 
 type Props = {
   params: Promise<{ id: string }>;
 };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { id } = await params;
+  const transfer = getTransfer(id);
+
+  if (!transfer) return {};
+
+  return {
+    title: transfer.title,
+    description: transfer.description,
+    openGraph: {
+      images: [{ url: transfer.images[0] }],
+    },
+  };
+}
 
 const SinglePage = async ({ params }: Props) => {
   const { id } = await params;
@@ -17,7 +38,7 @@ const SinglePage = async ({ params }: Props) => {
   return (
     <section className=''>
       <div className='max-w-3xl mx-auto pt-16'>
-        <div className='space-y-3'>
+        <div className='space-y-3 px-2'>
           <HeroCarousel images={transfer.images} />
           <div>
             <h3 className='text-xl text-amber-600 font-semibold tracking-wide'>

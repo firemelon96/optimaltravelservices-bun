@@ -1,3 +1,4 @@
+import { expeditions } from '@/data/expeditions';
 import { tours } from '@/data/tours';
 import { transfers } from '@/data/transfers';
 import { clsx, type ClassValue } from 'clsx';
@@ -13,6 +14,10 @@ export function getTour(id: string) {
 
 export function getTransfer(id: string) {
   return transfers.find((transfer) => transfer.id === id);
+}
+
+export function getExpedition(id: string) {
+  return expeditions.find((expe) => expe.id === id);
 }
 
 export function formatCurrency(price: number) {
