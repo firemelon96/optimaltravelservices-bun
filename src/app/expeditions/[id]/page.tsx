@@ -82,7 +82,7 @@ const SinglePage = async ({ params }: Props) => {
           </div>
 
           <div className='max-w-md mx-auto my-10'>
-            <BookTransferForm />
+            <BookTransferForm title={expedition.title} />
           </div>
         </div>
       </div>

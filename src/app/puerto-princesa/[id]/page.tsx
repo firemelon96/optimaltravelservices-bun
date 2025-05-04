@@ -1,7 +1,6 @@
 import { BookForm } from '@/components/book-form';
 import { HeroCarousel } from '@/components/hero-carousel';
 import { PriceTable } from '@/components/price-table';
-import { Skeleton } from '@/components/ui/skeleton';
 import { tours } from '@/data/tours';
 import { getTour } from '@/lib/utils';
 import { Metadata } from 'next';

@@ -28,6 +28,7 @@ interface Props {
   adults: number;
   children?: number;
   date: Date;
+  time: string;
 }
 
 export const ConfirmTransfer = ({
@@ -40,6 +41,7 @@ export const ConfirmTransfer = ({
   adults,
   children,
   date,
+  time,
 }: Props) => {
   const dateString = format(date, 'yyyy-MM-dd');
   return (
@@ -84,8 +86,8 @@ export const ConfirmTransfer = ({
               Title: {title} | {type}
             </Text>
             <Text style={booking}>
-              Duration:
-              {format(new Date(dateString), 'LLL dd, yyyy')}
+              Trave Date:
+              {format(new Date(dateString), 'LLL dd, yyyy')} | {time}
             </Text>
             <Text style={booking}>
               Participants: {adults} number of adult,{' '}

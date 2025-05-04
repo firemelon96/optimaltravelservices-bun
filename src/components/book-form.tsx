@@ -57,7 +57,7 @@ export const BookForm = ({ isPackage = false, title }: Props) => {
   });
 
   const [state, formAction, isPending] = useActionState(
-    async (prev: any, values: z.infer<typeof formSchema>) => {
+    async (prev: unknown, values: z.infer<typeof formSchema>) => {
       const result = await sendEmail({ ...values, title });
 
       if (result.success) {
@@ -81,6 +81,7 @@ export const BookForm = ({ isPackage = false, title }: Props) => {
       <p className='text-xl text-center tracking-widest font-semibold'>
         Reserve Now
       </p>
+      {!state.success && <p className='text-red-500'>{state.message}</p>}
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-2'>
           {isPackage ? (

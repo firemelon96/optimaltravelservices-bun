@@ -1,9 +1,8 @@
 'use server';
 
-import { formSchema, transferFormSchema } from '@/lib/zod-schema';
+import { transferFormSchema } from '@/lib/zod-schema';
 import { z } from 'zod';
 import { Resend } from 'resend';
-import ConfirmBooking from '../../emails/confirm-booking';
 import ConfirmTransfer from '../../emails/confirm-transfer';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -53,6 +52,7 @@ export const sendTransfer = async (
         mobileNumber: number,
         title,
         type,
+        time,
         children: numOfChildren,
       }),
     });
@@ -64,7 +64,7 @@ export const sendTransfer = async (
   } catch (error) {
     return {
       success: false,
-      message: 'Failed to send email!',
+      message: `Failed to send email! ${error}`,
     };
   }
 };

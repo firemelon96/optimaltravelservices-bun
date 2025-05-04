@@ -60,7 +60,7 @@ export const sendEmail = async (values: z.infer<typeof formSchema>) => {
   } catch (error) {
     return {
       success: false,
-      message: 'Failed to send email!',
+      message: `Failed to send email! ${error}`,
     };
   }
 };

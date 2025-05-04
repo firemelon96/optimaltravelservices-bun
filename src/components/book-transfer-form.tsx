@@ -56,7 +56,7 @@ export const BookTransferForm = ({ times, title }: Props) => {
   const date = form.watch('date');
 
   const [state, formAction, isPending] = useActionState(
-    async (prev: any, values: z.infer<typeof transferFormSchema>) => {
+    async (prev: unknown, values: z.infer<typeof transferFormSchema>) => {
       const result = await sendTransfer({ ...values, title });
       if (result.success) {
         toast.success(result.message);
@@ -81,6 +81,7 @@ export const BookTransferForm = ({ times, title }: Props) => {
       <p className='text-xl text-center tracking-widest font-semibold'>
         Reserve Now
       </p>
+      {!state.success && <p className='text-red-500'>{state.message}</p>}
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-2'>
           <FormField
@@ -94,6 +95,7 @@ export const BookTransferForm = ({ times, title }: Props) => {
                     <PopoverTrigger asChild>
                       <FormControl>
                         <Button
+                          disabled={isPending}
                           variant={'outline'}
                           className={cn(
                             'w-full pl-3 text-left font-normal',
