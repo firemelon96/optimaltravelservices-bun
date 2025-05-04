@@ -20,6 +20,12 @@ import { cn } from '@/lib/utils';
 import { tours } from '@/data/tours';
 import { transfers } from '@/data/transfers';
 import { expeditions } from '@/data/expeditions';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from './ui/accordion';
 
 const splitJoin = (text: string) => {
   return text.toLowerCase().split(' ').join('-');
@@ -204,33 +210,37 @@ export const Navbar = () => {
           </SheetTitle>
 
           {menus.map((menu) => (
-            <div key={menu.label}>
-              <p>{menu.label}</p>
-              {menu.subMenu?.map((menu) => (
-                <div className='pl-2' key={menu.label}>
-                  <p key={menu.href} className='font-medium'>
+            <Accordion type='multiple' key={menu.label} className='space-y-0'>
+              <AccordionItem value={menu.label}>
+                <AccordionTrigger className='bg-amber-50 px-2 '>
+                  <p>{menu.label}</p>
+                </AccordionTrigger>
+                {menu.subMenu?.map((menu) => (
+                  <AccordionContent className='' key={menu.label}>
+                    {/* <p key={menu.href} className='font-medium'>
                     {menu.label}
-                  </p>
-                  <ul className='w-full'>
-                    {menu.subMenu?.map((menu) => (
-                      <li className='truncate' key={menu.label}>
-                        <Link
-                          className={cn(
-                            buttonVariants({ variant: 'link' }),
-                            'text-muted-foreground'
-                          )}
-                          onClick={onClose}
-                          key={menu.href}
-                          href={menu.href}
-                        >
-                          {menu.label}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
+                    </p> */}
+                    <ul className='w-full'>
+                      {menu.subMenu?.map((menu) => (
+                        <li className='truncate' key={menu.label}>
+                          <Link
+                            className={cn(
+                              buttonVariants({ variant: 'link' }),
+                              'text-muted-foreground'
+                            )}
+                            onClick={onClose}
+                            key={menu.href}
+                            href={menu.href}
+                          >
+                            {menu.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </AccordionContent>
+                ))}
+              </AccordionItem>
+            </Accordion>
           ))}
         </SheetContent>
       </Sheet>

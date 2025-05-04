@@ -1,3 +1,4 @@
+import { BookTransferForm } from '@/components/book-transfer-form';
 import { HeroCarousel } from '@/components/hero-carousel';
 import { expeditions } from '@/data/expeditions';
 import { getExpedition } from '@/lib/utils';
@@ -79,12 +80,10 @@ const SinglePage = async ({ params }: Props) => {
               ))}
             </ul>
           </div>
-          {/* <div className='p-6 border'>
-            <ScheduleTable schedules={transfer.schedule} />
-          </div>
+
           <div className='max-w-md mx-auto my-10'>
-            <BookTransferForm times={transfer.schedule[0].departures} />
-          </div> */}
+            <BookTransferForm />
+          </div>
         </div>
       </div>
     </section>

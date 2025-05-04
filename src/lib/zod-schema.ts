@@ -26,6 +26,7 @@ export const formSchema = z.object({
   remarks: z.string(),
   type: z.string(),
 });
+
 export const transferFormSchema = z.object({
   title: z.string().optional(),
   firstName: z
@@ -44,7 +45,10 @@ export const transferFormSchema = z.object({
     },
     { message: 'Invalid Phone Number' }
   ),
-  time: z.string().min(1, { message: 'Please select departure time' }),
+  time: z
+    .string()
+    .min(1, { message: 'Please select departure time' })
+    .optional(),
   date: z.date(),
   remarks: z.string(),
   type: z.string(),

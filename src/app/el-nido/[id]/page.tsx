@@ -85,7 +85,10 @@ const SinglePage = async ({ params }: Props) => {
             <PriceTable pricing={tour.pricing} />
           </div>
           <div className='max-w-md mx-auto my-10'>
-            <BookForm />
+            <BookForm
+              title={tour.title}
+              isPackage={tour.type === 'package tour'}
+            />
           </div>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import { BookForm } from '@/components/book-form';
 import { HeroCarousel } from '@/components/hero-carousel';
 import { PriceTable } from '@/components/price-table';
+import { Skeleton } from '@/components/ui/skeleton';
 import { tours } from '@/data/tours';
 import { getTour } from '@/lib/utils';
 import { Metadata } from 'next';
@@ -87,7 +88,10 @@ const SinglePage = async ({ params }: Props) => {
             <PriceTable pricing={tour.pricing} />
           </div>
           <div className='max-w-md mx-auto my-10'>
-            <BookForm />
+            <BookForm
+              isPackage={tour.type === 'package tour'}
+              title={tour.title}
+            />
           </div>
         </div>
       </div>

@@ -29,7 +29,7 @@ const types = [
 ];
 
 interface Props {
-  times: string[];
+  times?: string[];
 }
 
 export const BookTransferForm = ({ times }: Props) => {
@@ -103,13 +103,13 @@ export const BookTransferForm = ({ times }: Props) => {
               </FormItem>
             )}
           />
-          {date && (
+          {date && times && (
             <FormField
               name='time'
               control={form.control}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Select time</FormLabel>
+                  <FormLabel>Departure time</FormLabel>
                   <FormControl>
                     <div className='flex gap-2 flex-wrap'>
                       {times.map((time) => (

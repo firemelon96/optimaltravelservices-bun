@@ -1,4 +1,5 @@
 'use client';
+
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import {
@@ -22,13 +23,21 @@ import PhoneInput from 'react-phone-number-input';
 import { cn } from '@/lib/utils';
 import { Textarea } from './ui/textarea';
 import { RadioGroup, RadioGroupItem } from './ui/radio-group';
+import { startTransition, useActionState } from 'react';
+import { sendEmail } from '@/actions/send-email';
+import { toast } from 'sonner';
 
 const types = [
   { label: 'Joiner', value: 'joiner' },
   { label: 'Private', value: 'private' },
 ];
 
-export const BookForm = () => {
+interface Props {
+  title: string;
+  isPackage?: boolean;
+}
+
+export const BookForm = ({ isPackage = false, title }: Props) => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -47,8 +56,24 @@ export const BookForm = () => {
     },
   });
 
+  const [state, formAction, isPending] = useActionState(
+    async (prev: any, values: z.infer<typeof formSchema>) => {
+      const result = await sendEmail({ ...values, title });
+
+      if (result.success) {
+        toast.success(result.message);
+        form.reset();
+      } else {
+        toast.error(result.message);
+      }
+
+      return result;
+    },
+    { success: false, message: '' }
+  );
+
   const onSubmit = (values: z.infer<typeof formSchema>) => {
-    console.log(values);
+    startTransition(() => formAction(values));
   };
 
   return (
@@ -58,55 +83,113 @@ export const BookForm = () => {
       </p>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-2'>
-          <FormField
-            name='dateRange'
-            control={form.control}
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Date</FormLabel>
-                <FormControl>
-                  <Popover>
-                    <PopoverTrigger asChild>
-                      <FormControl>
-                        <Button
-                          variant={'outline'}
-                          className={cn(
-                            'w-full pl-3 text-left font-normal',
-                            !field.value && 'text-muted-foreground'
-                          )}
-                        >
-                          {field.value.from ? (
-                            field.value.to ? (
-                              <>
-                                {format(field.value.from, 'LLL dd, y')} -{' '}
-                                {format(field.value.to, 'LLL dd, y')}
-                              </>
+          {isPackage ? (
+            <FormField
+              name='dateRange'
+              control={form.control}
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Date</FormLabel>
+                  <FormControl>
+                    <Popover>
+                      <PopoverTrigger asChild>
+                        <FormControl>
+                          <Button
+                            disabled={isPending}
+                            variant={'outline'}
+                            className={cn(
+                              'w-full pl-3 text-left font-normal',
+                              !field.value && 'text-muted-foreground'
+                            )}
+                          >
+                            {field.value && field?.value.from ? (
+                              field?.value.to ? (
+                                <>
+                                  {format(field.value.from, 'LLL dd, y')} -{' '}
+                                  {format(field.value.to, 'LLL dd, y')}
+                                </>
+                              ) : (
+                                format(field.value.from, 'LLL dd, y')
+                              )
                             ) : (
-                              format(field.value.from, 'LLL dd, y')
-                            )
-                          ) : (
-                            <span>Pick a date</span>
-                          )}
-                          <CalendarIcon className='ml-auto h-4 w-4 opacity-50' />
-                        </Button>
-                      </FormControl>
-                    </PopoverTrigger>
-                    <PopoverContent className='w-auto p-0' align='start'>
-                      <Calendar
-                        mode='range'
-                        selected={field.value}
-                        onSelect={field.onChange}
-                        disabled={(date) => date < new Date()}
-                        numberOfMonths={2}
-                        initialFocus
-                      />
-                    </PopoverContent>
-                  </Popover>
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+                              <span>Pick a date</span>
+                            )}
+                            <CalendarIcon className='ml-auto h-4 w-4 opacity-50' />
+                          </Button>
+                        </FormControl>
+                      </PopoverTrigger>
+                      <PopoverContent className='w-auto p-0' align='start'>
+                        <Calendar
+                          mode='range'
+                          selected={field.value}
+                          onSelect={field.onChange}
+                          disabled={(date) => date < new Date()}
+                          numberOfMonths={2}
+                          initialFocus
+                        />
+                      </PopoverContent>
+                    </Popover>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          ) : (
+            <FormField
+              name='dateRange'
+              control={form.control}
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Select desired date</FormLabel>
+                  <FormControl>
+                    <Popover>
+                      <PopoverTrigger asChild>
+                        <FormControl>
+                          <Button
+                            variant={'outline'}
+                            className={cn(
+                              'w-full pl-3 text-left font-normal',
+                              !field.value && 'text-muted-foreground'
+                            )}
+                          >
+                            {field.value.from ? (
+                              field.value.to ? (
+                                <>{format(field.value.from, 'LLL dd, y')}</>
+                              ) : (
+                                format(field.value.from, 'LLL dd, y')
+                              )
+                            ) : (
+                              <span>Pick a date</span>
+                            )}
+                            <CalendarIcon className='ml-auto h-4 w-4 opacity-50' />
+                          </Button>
+                        </FormControl>
+                      </PopoverTrigger>
+                      <PopoverContent className='w-auto p-0' align='start'>
+                        <Calendar
+                          mode='range'
+                          selected={field.value}
+                          onSelect={(dates) => {
+                            if (dates?.from) {
+                              field.onChange({
+                                from: dates?.from,
+                                to: dates.from,
+                              });
+                            } else {
+                              field.onChange(undefined);
+                            }
+                          }}
+                          disabled={(date) => date < new Date()}
+                          initialFocus
+                        />
+                      </PopoverContent>
+                    </Popover>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          )}
           <div className='flex flex-col gap-2 md:flex-row'>
             <FormField
               name='firstName'
@@ -266,7 +349,7 @@ export const BookForm = () => {
             )}
           />
 
-          <Button type='submit' className='w-full'>
+          <Button disabled={isPending} type='submit' className='w-full'>
             Submit
           </Button>
         </form>
