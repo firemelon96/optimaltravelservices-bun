@@ -75,7 +75,7 @@ export const About = () => {
   return (
     <section id='about' className='my-10 text-center px-2'>
       <div className='max-w-3xl mx-auto space-y-5'>
-        <h1 className='text-xl text-amber-600 font-semibold'>
+        <h1 className='text-xl text-[#4FAFAF] font-semibold'>
           Welcome to Optimal Travel Services
         </h1>
         <p className='text-justify'>
@@ -86,7 +86,7 @@ export const About = () => {
           Palawan’s tourism landscape, uniquely positioning us to assist your
           municipality in organizing and managing successful events
         </p>
-        <h2 className='text-xl text-amber-600 font-semibold'>
+        <h2 className='text-xl text-[#4FAFAF] font-semibold'>
           Our Diverse Offerings Include
         </h2>
 

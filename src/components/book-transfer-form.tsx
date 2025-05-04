@@ -22,6 +22,9 @@ import PhoneInput from 'react-phone-number-input';
 import { cn } from '@/lib/utils';
 import { Textarea } from './ui/textarea';
 import { RadioGroup, RadioGroupItem } from './ui/radio-group';
+import { startTransition, useActionState } from 'react';
+import { sendTransfer } from '@/actions/send-transfer';
+import { toast } from 'sonner';
 
 const types = [
   { label: 'Joiner', value: 'joiner' },
@@ -30,9 +33,10 @@ const types = [
 
 interface Props {
   times?: string[];
+  title: string;
 }
 
-export const BookTransferForm = ({ times }: Props) => {
+export const BookTransferForm = ({ times, title }: Props) => {
   const form = useForm<z.infer<typeof transferFormSchema>>({
     resolver: zodResolver(transferFormSchema),
     defaultValues: {
@@ -51,8 +55,25 @@ export const BookTransferForm = ({ times }: Props) => {
 
   const date = form.watch('date');
 
+  const [state, formAction, isPending] = useActionState(
+    async (prev: any, values: z.infer<typeof transferFormSchema>) => {
+      const result = await sendTransfer({ ...values, title });
+      if (result.success) {
+        toast.success(result.message);
+        form.reset();
+      } else {
+        toast.error(result.message);
+      }
+      return result;
+    },
+    {
+      success: false,
+      message: '',
+    }
+  );
+
   const onSubmit = (values: z.infer<typeof transferFormSchema>) => {
-    console.log(values);
+    startTransition(() => formAction(values));
   };
 
   return (

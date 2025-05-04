@@ -41,13 +41,13 @@ const SinglePage = async ({ params }: Props) => {
         <div className='space-y-3 px-2'>
           <HeroCarousel images={transfer.images} />
           <div>
-            <h3 className='text-xl text-amber-600 font-semibold tracking-wide'>
+            <h3 className='text-xl text-[#4FAFAF] font-semibold tracking-wide'>
               {transfer.title}
             </h3>
             <p>{transfer.description}</p>
           </div>
           <div className='p-3'>
-            <h5 className='text-xl text-amber-600 font-semibold tracking-wide'>
+            <h5 className='text-xl text-[#4FAFAF] font-semibold tracking-wide'>
               Inclusions
             </h5>
             <ul className='pl-4'>
@@ -56,8 +56,8 @@ const SinglePage = async ({ params }: Props) => {
               ))}
             </ul>
           </div>
-          <div className='bg-amber-50 p-3'>
-            <h6 className='text-xl text-amber-600 font-semibold tracking-wide'>
+          <div className='bg-[#4FAFAF]/50 p-3'>
+            <h6 className='text-xl text-[#4FAFAF] font-semibold tracking-wide'>
               Exclusions
             </h6>
             <ul className='pl-4'>
@@ -70,7 +70,10 @@ const SinglePage = async ({ params }: Props) => {
             <ScheduleTable schedules={transfer.schedule} />
           </div>
           <div className='max-w-md mx-auto my-10'>
-            <BookTransferForm times={transfer.schedule[0].departures} />
+            <BookTransferForm
+              title={transfer.title}
+              times={transfer.schedule[0].departures}
+            />
           </div>
         </div>
       </div>

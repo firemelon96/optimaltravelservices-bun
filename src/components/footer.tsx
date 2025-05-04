@@ -2,12 +2,12 @@ import { MailIcon, MapPin, Phone } from 'lucide-react';
 import { FaFacebook, FaInstagram, FaTiktok } from 'react-icons/fa';
 export const Footer = () => {
   return (
-    <footer className='bg-amber-600 '>
+    <footer className='bg-[#4FAFAF] '>
       <div className='max-w-3xl mx-auto py-10'>
         <div className='grid grid-cols-1 gap-3 md:grid-cols-2 px-2'>
           <div className='flex flex-col gap-2'>
             <div className='flex items-center gap-2'>
-              <div className='p-2 bg-amber-700 rounded-full'>
+              <div className='p-2 bg-[#3f8e8e] rounded-full'>
                 <MapPin className='size-6 text-white' />
               </div>
               <div>
@@ -18,7 +18,7 @@ export const Footer = () => {
               </div>
             </div>
             <div className='flex items-center gap-2'>
-              <div className='p-2 rounded-full bg-amber-700'>
+              <div className='p-2 rounded-full bg-[#3f8e8e]'>
                 <Phone className='size-6 text-white' />
               </div>
               <div>
@@ -28,7 +28,7 @@ export const Footer = () => {
               </div>
             </div>
             <div className='flex items-center gap-2'>
-              <div className='p-2 rounded-full bg-amber-700'>
+              <div className='p-2 rounded-full bg-[#3f8e8e]'>
                 <MailIcon className='size-6 text-white' />
               </div>
               <div>
@@ -60,7 +60,7 @@ export const Footer = () => {
           </div>
         </div>
       </div>
-      <div className='bg-amber-700'>
+      <div className='bg-[#3f8e8e]'>
         <div className='max-w-3xl mx-auto py-2'>
           <p className='text-center text-white/80'>
             &copy; Optimal Travel Services | All Rights Reserved.

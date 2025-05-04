@@ -42,13 +42,13 @@ const SinglePage = async ({ params }: Props) => {
         <div className='space-y-3 px-2'>
           <HeroCarousel images={tour.images} />
           <div>
-            <h3 className='text-xl text-amber-600 font-semibold tracking-wide'>
+            <h3 className='text-xl text-[#4FAFAF] font-semibold tracking-wide'>
               {tour.title}
             </h3>
             <p>{tour.description}</p>
           </div>
-          <div className='bg-amber-50 space-y-3 p-3'>
-            <h4 className='text-xl text-amber-600 font-semibold tracking-wide'>
+          <div className='bg-[#4FAFAF]/50 space-y-3 p-3'>
+            <h4 className='text-xl text-[#4FAFAF] font-semibold tracking-wide'>
               Itenerary
             </h4>
             {tour.itinerary?.map((item) => (
@@ -65,7 +65,7 @@ const SinglePage = async ({ params }: Props) => {
             ))}
           </div>
           <div className='p-3'>
-            <h5 className='text-xl text-amber-600 font-semibold tracking-wide'>
+            <h5 className='text-xl text-[#4FAFAF] font-semibold tracking-wide'>
               Inclusions
             </h5>
             <ul className='pl-4'>
@@ -74,8 +74,8 @@ const SinglePage = async ({ params }: Props) => {
               ))}
             </ul>
           </div>
-          <div className='bg-amber-50 p-3'>
-            <h6 className='text-xl text-amber-600 font-semibold tracking-wide'>
+          <div className='bg-[#4FAFAF]/50 p-3'>
+            <h6 className='text-xl text-[#4FAFAF] font-semibold tracking-wide'>
               Exclusions
             </h6>
             <ul className='pl-4'>

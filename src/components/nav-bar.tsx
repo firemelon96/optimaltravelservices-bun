@@ -205,14 +205,14 @@ export const Navbar = () => {
       </nav>
       <Sheet onOpenChange={onClose} open={isOpen}>
         <SheetContent className='p-4 overflow-y-auto'>
-          <SheetTitle className='tracking-wide text-amber-600 uppercase'>
+          <SheetTitle className='tracking-wide text-[#4FAFAF] uppercase'>
             Optimal Travel Services
           </SheetTitle>
 
           {menus.map((menu) => (
             <Accordion type='multiple' key={menu.label} className='space-y-0'>
               <AccordionItem value={menu.label}>
-                <AccordionTrigger className='bg-amber-50 px-2 '>
+                <AccordionTrigger className='bg-[#4FAFAF]/50 px-2 '>
                   <p>{menu.label}</p>
                 </AccordionTrigger>
                 {menu.subMenu?.map((menu) => (
@@ -257,7 +257,7 @@ const ListItem = ({
 }) => {
   return (
     <div>
-      <p className='text-base font-medium leading-none p-2 text-amber-600'>
+      <p className='text-base font-medium leading-none p-2 text-[#4FAFAF]'>
         {title}
       </p>
       <div className=''>
