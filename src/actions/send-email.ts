@@ -10,8 +10,6 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export const sendEmail = async (values: z.infer<typeof formSchema>) => {
   const validatedFields = formSchema.safeParse(values);
 
-  console.log(validatedFields.data);
-
   if (!validatedFields.success) {
     return {
       success: false,

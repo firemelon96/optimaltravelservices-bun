@@ -17,9 +17,6 @@ import { Button, buttonVariants } from './ui/button';
 import { Menu } from 'lucide-react';
 import { Sheet, SheetContent, SheetTitle } from './ui/sheet';
 import { cn } from '@/lib/utils';
-import { tours } from '@/data/tours';
-import { transfers } from '@/data/transfers';
-import { expeditions } from '@/data/expeditions';
 import {
   Accordion,
   AccordionContent,
@@ -27,127 +24,69 @@ import {
   AccordionTrigger,
 } from './ui/accordion';
 
-const splitJoin = (text: string) => {
-  return text.toLowerCase().split(' ').join('-');
-};
-
-const generateMenu = (type: string, destination: string) => {
-  return tours
-    .filter(
-      (tour) =>
-        tour.type.toLowerCase() === type.toLowerCase() &&
-        tour.destination.toLowerCase() === destination.toLowerCase()
-    )
-    .map((tour) => ({
-      label: tour.title,
-      href: `/${splitJoin(tour.destination)}/${tour.id}`,
-    }));
-};
-
-const transferNav = () => {
-  return transfers.map((transfer) => ({
-    label: transfer.title,
-    href: `/transfers/${transfer.id}`,
-  }));
-};
-
 export const menus = [
   {
-    label: 'Puerto Princesa',
-    href: '/#puerto-princesa',
+    label: 'Home',
+    href: '/',
+  },
+  {
+    label: 'Tours & Activities',
+    href: '#',
     subMenu: [
       {
-        label: 'Day Tour',
-        href: '#',
-        subMenu: generateMenu('day tour', 'puerto princesa'),
+        label: 'Puerto Princesa',
+        href: '/puerto-princesa',
+        description: 'Explore Puerto Princesa',
       },
       {
-        label: 'Package Tour',
-        href: '#',
-        subMenu: generateMenu('package tour', 'puerto princesa'),
+        label: 'El Nido',
+        href: '/el-nido',
+        description: 'Explore El Nido',
+      },
+      {
+        label: 'Coron Island',
+        href: '/coron',
+        description: 'Explore Coron Island',
+      },
+      {
+        label: 'Port Barton',
+        href: '/port-barton',
+        description: 'Explore Port Barton',
+      },
+      {
+        label: 'Balabac Island',
+        href: '/balabac',
+        description: 'Explore Balabac Island',
+      },
+      {
+        label: 'Transfers',
+        href: '/transfers',
+        description: 'Book your transfer with us',
       },
     ],
   },
   {
-    label: 'El Nido',
-    href: '/el-nido',
-    subMenu: [
-      {
-        label: 'Day Tour',
-        href: '#',
-        subMenu: generateMenu('day tour', 'el nido'),
-      },
-      {
-        label: 'Package Tour',
-        href: '#',
-        subMenu: generateMenu('package tour', 'el nido'),
-      },
-    ],
+    label: 'Expeditions',
+    href: '/expeditions',
   },
   {
-    label: 'Coron',
-    href: '/coron',
+    label: 'About us',
+    href: '/#',
     subMenu: [
       {
-        label: 'Day Tour',
-        href: '#',
-        subMenu: generateMenu('day tour', 'coron'),
+        label: 'Optimal Travel Services',
+        href: '/about-us',
+        description: 'Learn more about us',
       },
       {
-        label: 'Package Tour',
-        href: '#',
-        subMenu: generateMenu('package tour', 'coron'),
-      },
-    ],
-  },
-  {
-    label: 'Port Barton',
-    href: '/port-barton',
-    subMenu: [
-      {
-        label: 'Day Tour',
-        href: '#',
-        subMenu: generateMenu('day tour', 'port barton'),
+        label: 'Refund Policy',
+        href: '/refund-policy',
+        description: 'Our refund policy',
       },
       {
-        label: 'Package Tour',
-        href: '#',
-        subMenu: generateMenu('package tour', 'port barton'),
-      },
-    ],
-  },
-  {
-    label: 'Balabac',
-    href: '/balabac',
-    subMenu: [
-      {
-        label: 'Day Tour',
-        href: '#',
-        subMenu: generateMenu('day tour', 'balabac'),
-      },
-      {
-        label: 'Package Tour',
-        href: '#',
-        subMenu: generateMenu('package tour', 'balabac'),
-      },
-    ],
-  },
-  {
-    label: 'Transfers',
-    href: '',
-    subMenu: [
-      {
-        label: 'Transfer services',
-        href: '/#transfers',
-        subMenu: transferNav(),
-      },
-      {
-        label: 'Expeditions',
-        href: '#',
-        subMenu: expeditions.map((expe) => ({
-          label: expe.title,
-          href: `/expeditions/${expe.id}`,
-        })),
+        label: 'Contact us',
+        href: '/contact-us',
+        description: 'Reach us now',
       },
     ],
   },
@@ -178,15 +117,16 @@ export const Navbar = () => {
                   <>
                     <NavigationMenuTrigger>{menu.label}</NavigationMenuTrigger>
                     <NavigationMenuContent>
-                      <div className='grid w-[400px] gap-3 p-2 md:w-[500px] md:grid-cols-2 lg:w-[600px] '>
+                      <ul className='grid w-[400px] gap-2 p-2 md:w-[300px] md:grid-cols-2 lg:w-[450px] '>
                         {menu.subMenu.map((submenu) => (
                           <ListItem
                             key={submenu.label}
                             title={submenu.label}
-                            submenu={submenu?.subMenu || []}
+                            href={submenu.href}
+                            description={submenu.description}
                           />
                         ))}
-                      </div>
+                      </ul>
                     </NavigationMenuContent>
                   </>
                 ) : (
@@ -210,36 +150,47 @@ export const Navbar = () => {
           </SheetTitle>
 
           {menus.map((menu) => (
-            <Accordion type='multiple' key={menu.label} className='space-y-0'>
-              <AccordionItem value={menu.label}>
-                <AccordionTrigger className='bg-[#4FAFAF]/50 px-2 '>
-                  <p>{menu.label}</p>
-                </AccordionTrigger>
-                {menu.subMenu?.map((menu) => (
-                  <AccordionContent className='' key={menu.label}>
-                    {/* <p key={menu.href} className='font-medium'>
-                    {menu.label}
-                    </p> */}
+            <Accordion
+              type='multiple'
+              key={menu.label}
+              className='space-y-0 text-lg'
+            >
+              {menu.subMenu ? (
+                <AccordionItem value={menu.label}>
+                  <AccordionTrigger className='px-4'>
+                    <p>{menu.label}</p>
+                  </AccordionTrigger>
+
+                  <AccordionContent className='pl-4' key={menu.label}>
                     <ul className='w-full'>
                       {menu.subMenu?.map((menu) => (
                         <li className='truncate' key={menu.label}>
-                          <Link
-                            className={cn(
-                              buttonVariants({ variant: 'link' }),
-                              'text-muted-foreground'
-                            )}
-                            onClick={onClose}
-                            key={menu.href}
-                            href={menu.href}
-                          >
-                            {menu.label}
-                          </Link>
+                          <Button asChild variant={'link'}>
+                            <Link
+                              onClick={onClose}
+                              key={menu.href}
+                              href={menu.href}
+                              className='text-slate-500'
+                            >
+                              {menu.label}
+                            </Link>
+                          </Button>
                         </li>
                       ))}
                     </ul>
                   </AccordionContent>
-                ))}
-              </AccordionItem>
+                </AccordionItem>
+              ) : (
+                <AccordionItem value={menu.label}>
+                  <Link
+                    onClick={onClose}
+                    href={menu.href}
+                    className={cn(buttonVariants({ variant: 'link' }))}
+                  >
+                    {menu.label}
+                  </Link>
+                </AccordionItem>
+              )}
             </Accordion>
           ))}
         </SheetContent>
@@ -249,30 +200,24 @@ export const Navbar = () => {
 };
 
 const ListItem = ({
-  submenu,
   title,
+  href,
+  description,
 }: {
   title: string;
-  submenu: { label: string; href: string }[];
+  href: string;
+  description: string;
 }) => {
   return (
-    <div>
-      <p className='text-base font-medium leading-none p-2 text-[#4FAFAF]'>
-        {title}
-      </p>
-      <div className=''>
-        {submenu.map((sub) => (
-          <NavigationMenuLink key={sub.label} asChild>
-            <ul className='flex gap-2'>
-              <ul className='flex gap-2'>
-                <Link href={sub.href} className='truncate'>
-                  {sub.label}
-                </Link>
-              </ul>
-            </ul>
-          </NavigationMenuLink>
-        ))}
-      </div>
-    </div>
+    <li className=''>
+      <NavigationMenuLink key={href} asChild>
+        <Link href={href} className='truncate leading-none'>
+          {title}
+          <p className='line-clamp-2 text-sm leading-snug text-muted-foreground'>
+            {description}
+          </p>
+        </Link>
+      </NavigationMenuLink>
+    </li>
   );
 };

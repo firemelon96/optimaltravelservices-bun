@@ -50,3 +50,12 @@ export const transferFormSchema = z.object({
   remarks: z.string(),
   type: z.string(),
 });
+
+export const FormSchema = z.object({
+  fullname: z.string().min(1, { message: 'Please fill in your name' }),
+  email: z.string().email({ message: 'Provide a valid email' }),
+  message: z
+    .string()
+    .min(20, { message: 'Minimun of 20 characters' })
+    .max(100, { message: 'Do not exceed 100 characters' }),
+});

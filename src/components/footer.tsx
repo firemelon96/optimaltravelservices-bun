@@ -1,4 +1,5 @@
 import { MailIcon, MapPin, Phone } from 'lucide-react';
+import Link from 'next/link';
 import { FaFacebook, FaInstagram, FaTiktok } from 'react-icons/fa';
 export const Footer = () => {
   return (
@@ -54,7 +55,11 @@ export const Footer = () => {
             </p>
 
             <div className='flex gap-2 text-white/80'>
-              <FaFacebook className='size-8' />{' '}
+              <Link
+                href={'https://www.facebook.com/profile.php?id=100086484061516'}
+              >
+                <FaFacebook className='size-8' />
+              </Link>
               <FaInstagram className='size-8' /> <FaTiktok className='size-8' />
             </div>
           </div>
@@ -63,7 +68,8 @@ export const Footer = () => {
       <div className='bg-[#3f8e8e]'>
         <div className='max-w-3xl mx-auto py-2'>
           <p className='text-center text-white/80'>
-            &copy; Optimal Travel Services | All Rights Reserved.
+            &copy; {new Date().getFullYear()} Optimal Travel Services | All
+            Rights Reserved.
           </p>
         </div>
       </div>

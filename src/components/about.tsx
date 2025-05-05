@@ -13,7 +13,7 @@ import {
 import { Carousel, CarouselContent, CarouselItem } from './ui/carousel';
 import { FaSuitcase } from 'react-icons/fa';
 
-const categories = [
+export const categories = [
   {
     id: '01',
     label: 'Island Hopping Tour',

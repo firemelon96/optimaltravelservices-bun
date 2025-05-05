@@ -46,7 +46,7 @@ const SinglePage = async ({ params }: Props) => {
             </h3>
             <p>{tour.description}</p>
           </div>
-          <div className='bg-[#4FAFAF]/50 space-y-3 p-3'>
+          <div className='bg-[#4FAFAF]/10 space-y-3 p-3'>
             <h4 className='text-xl text-[#4FAFAF] font-semibold tracking-wide'>
               Itenerary
             </h4>
@@ -73,13 +73,23 @@ const SinglePage = async ({ params }: Props) => {
               ))}
             </ul>
           </div>
-          <div className='bg-[#4FAFAF]/50 p-3'>
+          <div className='bg-[#4FAFAF]/10 p-3'>
             <h6 className='text-xl text-[#4FAFAF] font-semibold tracking-wide'>
               Exclusions
             </h6>
             <ul className='pl-4'>
               {tour.exclusions.map((excl) => (
                 <li key={excl}>{excl}</li>
+              ))}
+            </ul>
+          </div>
+          <div className='p-3'>
+            <h6 className='text-xl text-[#4FAFAF] font-semibold tracking-wide'>
+              Important Information
+            </h6>
+            <ul className='pl-4 space-y-4'>
+              {tour.importantNotes.map((note, i) => (
+                <li key={i}>{note}</li>
               ))}
             </ul>
           </div>

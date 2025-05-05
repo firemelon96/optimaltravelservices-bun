@@ -1,4 +1,5 @@
 import { About } from '@/components/about';
+import { Expeditions } from '@/components/expedition';
 import { Hero } from '@/components/hero';
 import { Tours } from '@/components/tours';
 import { Transfer } from '@/components/transfer';
@@ -18,6 +19,7 @@ export default function Home() {
       <Tours title='Balabac' type='day tour' />
       <Tours title='Balabac' type='package tour' />
       <Transfer />
+      <Expeditions />
     </>
   );
 }

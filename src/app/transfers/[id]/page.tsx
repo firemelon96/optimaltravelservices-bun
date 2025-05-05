@@ -56,7 +56,7 @@ const SinglePage = async ({ params }: Props) => {
               ))}
             </ul>
           </div>
-          <div className='bg-[#4FAFAF]/50 p-3'>
+          <div className='bg-[#4FAFAF]/10 p-3'>
             <h6 className='text-xl text-[#4FAFAF] font-semibold tracking-wide'>
               Exclusions
             </h6>
