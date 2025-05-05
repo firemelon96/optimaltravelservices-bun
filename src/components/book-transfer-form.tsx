@@ -25,6 +25,7 @@ import { RadioGroup, RadioGroupItem } from './ui/radio-group';
 import { startTransition, useActionState } from 'react';
 import { sendTransfer } from '@/actions/send-transfer';
 import { toast } from 'sonner';
+import { Badge } from './ui/badge';
 
 const types = [
   { label: 'Joiner', value: 'joiner' },
@@ -74,6 +75,8 @@ export const BookTransferForm = ({ times, title }: Props) => {
 
   const onSubmit = (values: z.infer<typeof transferFormSchema>) => {
     startTransition(() => formAction(values));
+    // console.log(values);
+    // console.log(state);
   };
 
   return (
@@ -81,7 +84,6 @@ export const BookTransferForm = ({ times, title }: Props) => {
       <p className='text-xl text-center tracking-widest font-semibold'>
         Reserve Now
       </p>
-      {!state.success && <p className='text-red-500'>{state.message}</p>}
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-2'>
           <FormField
@@ -137,6 +139,7 @@ export const BookTransferForm = ({ times, title }: Props) => {
                     <div className='flex gap-2 flex-wrap'>
                       {times.map((time) => (
                         <Button
+                          disabled={isPending}
                           key={time}
                           type='button'
                           size={'sm'}
@@ -162,6 +165,7 @@ export const BookTransferForm = ({ times, title }: Props) => {
                   <FormLabel>First Name</FormLabel>
                   <FormControl>
                     <Input
+                      disabled={isPending}
                       type='text'
                       {...field}
                       placeholder='Enter your firstname'
@@ -179,6 +183,7 @@ export const BookTransferForm = ({ times, title }: Props) => {
                   <FormLabel>Last Name</FormLabel>
                   <FormControl>
                     <Input
+                      disabled={isPending}
                       type='text'
                       {...field}
                       placeholder='Enter your lastname'
@@ -198,6 +203,7 @@ export const BookTransferForm = ({ times, title }: Props) => {
                   <FormLabel>Number of Adults</FormLabel>
                   <FormControl>
                     <Input
+                      disabled={isPending}
                       type='number'
                       {...field}
                       placeholder='Enter number of adults'
@@ -215,6 +221,7 @@ export const BookTransferForm = ({ times, title }: Props) => {
                   <FormLabel>Numbor of Children</FormLabel>
                   <FormControl>
                     <Input
+                      disabled={isPending}
                       type='number'
                       {...field}
                       placeholder='Enter number of children'
@@ -234,6 +241,7 @@ export const BookTransferForm = ({ times, title }: Props) => {
                   <FormLabel>Email</FormLabel>
                   <FormControl>
                     <Input
+                      disabled={isPending}
                       type='email'
                       {...field}
                       placeholder='Enter number of adults'
@@ -251,6 +259,7 @@ export const BookTransferForm = ({ times, title }: Props) => {
                   <FormLabel>Whatsapp number</FormLabel>
                   <FormControl>
                     <PhoneInput
+                      disabled={isPending}
                       {...field}
                       international
                       defaultCountry='PH'
@@ -271,6 +280,7 @@ export const BookTransferForm = ({ times, title }: Props) => {
                 <FormLabel>Select your type</FormLabel>
                 <FormControl>
                   <RadioGroup
+                    disabled={isPending}
                     onValueChange={field.onChange}
                     defaultValue={field.value}
                     className='flex'
@@ -302,6 +312,7 @@ export const BookTransferForm = ({ times, title }: Props) => {
                 <FormLabel>Remarks</FormLabel>
                 <FormControl>
                   <Textarea
+                    disabled={isPending}
                     placeholder='Let us know what you need, allergies to food, etc.'
                     className='resize-none'
                     {...field}
@@ -312,8 +323,19 @@ export const BookTransferForm = ({ times, title }: Props) => {
             )}
           />
 
-          <Button type='submit' className='w-full'>
-            Submit
+          {state.success && state.message && (
+            <Badge className='w-full' variant={'secondary'}>
+              {state.message}
+            </Badge>
+          )}
+          {!state.success && state.message && (
+            <Badge className='w-full' variant={'destructive'}>
+              {state.message}
+            </Badge>
+          )}
+
+          <Button type='submit' className='w-full' disabled={isPending}>
+            {isPending ? 'Submitting...' : 'Submit'}
           </Button>
         </form>
       </Form>

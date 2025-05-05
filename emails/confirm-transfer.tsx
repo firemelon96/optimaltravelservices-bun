@@ -14,10 +14,6 @@ import {
 } from '@react-email/components';
 import { format } from 'date-fns';
 
-const baseUrl = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}`
-  : '';
-
 interface Props {
   fullname: string;
   title: string;
@@ -40,10 +36,11 @@ export const ConfirmTransfer = ({
   message,
   adults,
   children,
-  date,
+  date = new Date(),
   time,
 }: Props) => {
   const dateString = format(date, 'yyyy-MM-dd');
+
   return (
     <Html>
       <Head />
@@ -160,14 +157,6 @@ export const ConfirmTransfer = ({
                 </Link>
               </Column>
             </Row>
-            <Row>
-              <Img
-                style={footer}
-                width='540'
-                height='48'
-                src={`${baseUrl}/static/google-play-footer.png`}
-              />
-            </Row>
           </Section> */}
 
           <Section style={{ ...paragraphContent, paddingBottom: 30 }}>
@@ -222,18 +211,18 @@ const container = {
 };
 
 const containerContact = {
-  backgroundColor: '#fffaf0',
+  backgroundColor: '#8be7e7',
   width: '90%',
   borderRadius: '5px',
   overflow: 'hidden',
-  paddingLeft: '20px',
+  padding: '20px',
 };
 
 const heading = {
   fontSize: '14px',
   lineHeight: '26px',
   fontWeight: '700',
-  color: 'orange',
+  color: '#4FAFAF',
 };
 
 const paragraphContent = {

@@ -39,7 +39,7 @@ export const ConfirmBooking = ({
   message,
   adults,
   children,
-  dateRange,
+  dateRange = { from: new Date(), to: new Date() },
 }: Props) => {
   const dateFromString = format(dateRange.from, 'yyyy-MM-dd');
   const dateToString = format(dateRange.to, 'yyyy-MM-dd');
@@ -232,7 +232,7 @@ const heading = {
   fontSize: '14px',
   lineHeight: '26px',
   fontWeight: '700',
-  color: 'orange',
+  color: '#4FAFAF',
 };
 
 const paragraphContent = {

@@ -37,6 +37,8 @@ export const sendTransfer = async (
 
   if (!title) return { success: false, message: 'Title is missing!' };
 
+  // return { success: false, message: 'something went not right' };
+
   try {
     await resend.emails.send({
       from: 'Optimal Travel Service <support@puertoprincesapalawantours.com>',

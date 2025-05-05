@@ -26,6 +26,7 @@ import { RadioGroup, RadioGroupItem } from './ui/radio-group';
 import { startTransition, useActionState } from 'react';
 import { sendEmail } from '@/actions/send-email';
 import { toast } from 'sonner';
+import { Badge } from './ui/badge';
 
 const types = [
   { label: 'Joiner', value: 'joiner' },
@@ -147,6 +148,7 @@ export const BookForm = ({ isPackage = false, title }: Props) => {
                       <PopoverTrigger asChild>
                         <FormControl>
                           <Button
+                            disabled={isPending}
                             variant={'outline'}
                             className={cn(
                               'w-full pl-3 text-left font-normal',
@@ -200,6 +202,7 @@ export const BookForm = ({ isPackage = false, title }: Props) => {
                   <FormLabel>First Name</FormLabel>
                   <FormControl>
                     <Input
+                      disabled={isPending}
                       type='text'
                       {...field}
                       placeholder='Enter your firstname'
@@ -217,6 +220,7 @@ export const BookForm = ({ isPackage = false, title }: Props) => {
                   <FormLabel>Last Name</FormLabel>
                   <FormControl>
                     <Input
+                      disabled={isPending}
                       type='text'
                       {...field}
                       placeholder='Enter your lastname'
@@ -236,6 +240,7 @@ export const BookForm = ({ isPackage = false, title }: Props) => {
                   <FormLabel>Number of Adults</FormLabel>
                   <FormControl>
                     <Input
+                      disabled={isPending}
                       type='number'
                       {...field}
                       placeholder='Enter number of adults'
@@ -253,6 +258,7 @@ export const BookForm = ({ isPackage = false, title }: Props) => {
                   <FormLabel>Numbor of Children</FormLabel>
                   <FormControl>
                     <Input
+                      disabled={isPending}
                       type='number'
                       {...field}
                       placeholder='Enter number of children'
@@ -272,6 +278,7 @@ export const BookForm = ({ isPackage = false, title }: Props) => {
                   <FormLabel>Email</FormLabel>
                   <FormControl>
                     <Input
+                      disabled={isPending}
                       type='email'
                       {...field}
                       placeholder='Enter number of adults'
@@ -291,6 +298,7 @@ export const BookForm = ({ isPackage = false, title }: Props) => {
                     <PhoneInput
                       {...field}
                       international
+                      disabled={isPending}
                       defaultCountry='PH'
                       placeholder='e.g. 09171234567'
                       className='[&>input]:border-input [&>input]:bg-background [&>input]:placeholder:text-muted-foreground [&>input]:focus-visible:ring-ring w-full [&>input]:w-full [&>input]:rounded-md [&>input]:border [&>input]:px-3 [&>input]:py-2 [&>input]:text-sm [&>input]:shadow-xs [&>input]:focus-visible:ring-1 [&>input]:focus-visible:outline-none'
@@ -309,6 +317,7 @@ export const BookForm = ({ isPackage = false, title }: Props) => {
                 <FormLabel>Select your type</FormLabel>
                 <FormControl>
                   <RadioGroup
+                    disabled={isPending}
                     onValueChange={field.onChange}
                     defaultValue={field.value}
                     className='flex'
@@ -340,6 +349,7 @@ export const BookForm = ({ isPackage = false, title }: Props) => {
                 <FormLabel>Remarks</FormLabel>
                 <FormControl>
                   <Textarea
+                    disabled={isPending}
                     placeholder='Let us know what you need, allergies to food, etc.'
                     className='resize-none'
                     {...field}
@@ -350,8 +360,19 @@ export const BookForm = ({ isPackage = false, title }: Props) => {
             )}
           />
 
+          {state.success && state.message && (
+            <Badge className='w-full' variant={'secondary'}>
+              {state.message}
+            </Badge>
+          )}
+          {!state.success && state.message && (
+            <Badge className='w-full' variant={'destructive'}>
+              {state.message}
+            </Badge>
+          )}
+
           <Button disabled={isPending} type='submit' className='w-full'>
-            Submit
+            {isPending ? 'Submitting...' : 'Submit'}
           </Button>
         </form>
       </Form>
