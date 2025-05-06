@@ -23,7 +23,7 @@ export const Hero = () => {
               Optimal Travel Services
             </h1>
             <p className='text-3xl text-center font-semibold tracking-widest text-white'>
-              Explore, Relax, Unwind
+              Explore... Relax... Unwind...
             </p>
           </div>
         </div>

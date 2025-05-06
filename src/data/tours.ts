@@ -96,7 +96,7 @@ export const tours = [
     destination: 'Puerto Princesa',
     duration: 'full day',
     description:
-      'Hit the beach in style with this whole day tour of the islands and reefs of Hunda Bay, Puerto Princesa. With its rich marine biodiversity, Hunda Bay is touted as the Philippines Last Frontier. On this activity, youll get to bask under the tropical sun, listen to the calming waves of the sea and get to meet different people in your tour group.',
+      'Hit the beach in style with this whole day tour of the islands and reefs of Honda Bay, Puerto Princesa. With its rich marine biodiversity, Honda Bay is touted as the Philippines Last Frontier. On this activity, youll get to bask under the tropical sun, listen to the calming waves of the sea and get to meet different people in your tour group.',
     inclusions: [
       'Lunch',
       'Local guide',

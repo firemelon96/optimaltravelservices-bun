@@ -2,7 +2,7 @@ import { BookForm } from '@/components/book-form';
 import { HeroCarousel } from '@/components/hero-carousel';
 import { PriceTable } from '@/components/price-table';
 import { tours } from '@/data/tours';
-import { getTour } from '@/lib/utils';
+import { cn, getTour } from '@/lib/utils';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
@@ -51,11 +51,18 @@ const SinglePage = async ({ params }: Props) => {
               Itenerary
             </h4>
             {tour.itinerary?.map((item) => (
-              <div key={item.title} className='pl-4'>
-                <p>
-                  {item.day ? `Day ${item.day}: ${item.title}` : item.title}
-                </p>
-                <ul className='pl-4'>
+              <div
+                key={item.title}
+                className={cn('pl-4', tour.itinerary.length === 1 && 'pl-2')}
+              >
+                {tour.itinerary.length > 1 && (
+                  <p>
+                    {item.day ? `Day ${item.day}: ${item.title}` : item.title}
+                  </p>
+                )}
+                <ul
+                  className={cn('pl-4', tour.itinerary.length === 1 && 'pl-2')}
+                >
                   {item.activities.map((item) => (
                     <li key={item}>{item}</li>
                   ))}
