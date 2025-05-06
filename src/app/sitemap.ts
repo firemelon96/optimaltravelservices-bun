@@ -58,10 +58,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const transferEntries: MetadataRoute.Sitemap = transfers.map(({ id }) => ({
     url: `${BASE_URL}/transfers/${id}`,
+    changeFrequency: 'monthly',
+    priority: 0.8,
   }));
 
   const expeEntries: MetadataRoute.Sitemap = expeditions.map(({ id }) => ({
     url: `${BASE_URL}/expeditions/${id}`,
+    changeFrequency: 'monthly',
+    priority: 0.8,
   }));
 
   return [
