@@ -13,6 +13,7 @@ interface CardProps {
   pricing: {
     type: string;
     amount: number;
+    promo?: number;
     description: string;
     currency: string;
   }[];
@@ -28,6 +29,7 @@ export const TourCard = ({
 }: CardProps) => {
   const name = address.toLowerCase().split(',')[0].split(' ').join('-');
   const initialPrice = pricing[0].amount;
+  const promoPrice = pricing[0].promo;
   return (
     <Card className='p-1'>
       <div className=' w-full gap-2 p-2 space-y-2'>
@@ -45,12 +47,21 @@ export const TourCard = ({
             {description}
           </p>
           <hr className='border border-[#06988B]/45' />
-          <div className='flex items-center justify-between md:flex-row '>
+          <div className='flex h-auto items-center justify-between md:flex-row '>
             <div className=''>
               <span className='text-xs'>Starting from</span>
-              <p className='text-base font-bold'>
-                {formatCurrency(initialPrice)}
-              </p>
+              {promoPrice ? (
+                <p className='text-base font-bold '>
+                  <span className='line-through text-xs font-medium text-rose-400'>
+                    {formatCurrency(initialPrice)}
+                  </span>{' '}
+                  {formatCurrency(promoPrice)}
+                </p>
+              ) : (
+                <p className='text-base font-bold '>
+                  {formatCurrency(initialPrice)}
+                </p>
+              )}
             </div>
             <Button className=''>
               <Link href={`/${name}/${id}`}>More Details</Link>

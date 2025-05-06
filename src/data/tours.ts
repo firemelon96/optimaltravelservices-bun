@@ -41,6 +41,7 @@ export const tours = [
       {
         type: 'joiner',
         amount: 700,
+        promo: 500,
         currency: 'PHP',
         description: 'Joiner tour rate per person',
       },
@@ -131,7 +132,8 @@ export const tours = [
     pricing: [
       {
         type: 'joiner',
-        amount: 1500,
+        amount: 1700,
+        promo: 1500,
         currency: 'PHP',
         description: 'Joiner rate per person (minimum 2 pax)',
       },
@@ -216,7 +218,8 @@ export const tours = [
     pricing: [
       {
         type: 'joiner',
-        amount: 2200,
+        amount: 2700,
+        promo: 2000,
         currency: 'PHP',
         description: 'Joiner tour per person (with lunch and permits)',
       },

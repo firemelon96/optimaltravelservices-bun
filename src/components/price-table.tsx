@@ -23,7 +23,12 @@ import { formatCurrency } from '@/lib/utils';
 // ];
 
 type Prop = {
-  pricing: { type: string; amount: number; description: string }[];
+  pricing: {
+    type: string;
+    amount: number;
+    promo?: number;
+    description: string;
+  }[];
 };
 
 export const PriceTable = ({ pricing }: Prop) => {
@@ -46,7 +51,16 @@ export const PriceTable = ({ pricing }: Prop) => {
               </span>
             </TableCell>
             <TableCell className='text-right'>
-              {formatCurrency(price.amount)}
+              {price.promo ? (
+                <>
+                  <span className='line-through text-xs text-rose-400'>
+                    {formatCurrency(price.amount)}
+                  </span>{' '}
+                  <p className='font-medium'>{formatCurrency(price.promo)}</p>
+                </>
+              ) : (
+                <p className='font-medium'>{formatCurrency(price.amount)}</p>
+              )}
             </TableCell>
           </TableRow>
         ))}
