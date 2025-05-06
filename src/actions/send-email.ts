@@ -35,7 +35,7 @@ export const sendEmail = async (values: z.infer<typeof formSchema>) => {
   try {
     await resend.emails.send({
       from: 'Optimal Travel Service <support@puertoprincesapalawantours.com>',
-      to: ['almujahid.ibno.jamion@gmail.com'],
+      to: ['optimaltravelservices11@gmail.com'],
       replyTo: email,
       subject: `Booking - ${title}`,
       react: ConfirmBooking({

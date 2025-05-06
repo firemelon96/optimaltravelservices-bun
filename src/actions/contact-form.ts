@@ -19,7 +19,7 @@ export const contactFormSend = async (values: FormValues) => {
   try {
     await resend.emails.send({
       from: 'Optimal Travel Service <support@puertoprincesapalawantours.com>',
-      to: ['almujahid.ibno.jamion@gmail.com'],
+      to: ['optimaltravelservices11@gmail.com'],
       replyTo: email,
       subject: 'New Message from Website',
       react: ContactEmail({ email, fullname, message }),

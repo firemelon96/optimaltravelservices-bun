@@ -5,6 +5,7 @@ import { Navbar } from '@/components/nav-bar';
 import { Footer } from '@/components/footer';
 import ScrollToTop from '@/components/scroll-to-top';
 import { Toaster } from '@/components/ui/sonner';
+import ClarityProvider from '@/components/clarity-provider';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -28,15 +29,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <Navbar />
-        <main className=''>{children}</main>
-        <ScrollToTop />
-        <Footer />
-        <Toaster richColors />
-      </body>
+      <ClarityProvider>
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        >
+          <Navbar />
+          <main className=''>{children}</main>
+          <ScrollToTop />
+          <Footer />
+          <Toaster richColors />
+        </body>
+      </ClarityProvider>
     </html>
   );
 }
