@@ -79,12 +79,13 @@ export const About = () => {
           Welcome to Optimal Travel Services
         </h1>
         <p className='text-justify'>
-          We are a reputable tour operator/DOT Accredited travel agency
-          specializiing in creating unforgettable travel and event experiences
-          in the beautiful province of Palawan. As a local company based in Sta.
-          Monica, Puerto Princesa City, we possess extensive knowledge in
-          Palawan’s tourism landscape, uniquely positioning us to assist your
-          municipality in organizing and managing successful events
+          Optimal Travel Services is a reputable travel agency in Puerto
+          Princesa City, Palawan, a DOT Accredited travel agency specializing in
+          creating unforgettable travel and event experiences in the beautiful
+          province of Palawan. As a local company based in Sta. Monica, Puerto
+          Princesa City, we pocess exteensivee knowledge in Palawans tourism
+          landscape, uniquely positioning us to assist you in organizing and
+          managing successful and meaningful vacation.
         </p>
         <h2 className='text-xl text-[#4FAFAF] font-semibold'>
           Our Diverse Offerings Include
