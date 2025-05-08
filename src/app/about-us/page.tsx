@@ -18,7 +18,7 @@ const AboutPage = () => {
           Princesa City, Palawan, a DOT Accredited travel agency specializing in
           creating unforgettable travel and event experiences in the beautiful
           province of Palawan. As a local company based in Sta. Monica, Puerto
-          Princesa City, we pocess exteensivee knowledge in Palawan's tourism
+          Princesa City, we pocess exteensivee knowledge in Palawans tourism
           landscape, uniquely positioning us to assist you in organizing and
           managing successful and meaningful vacation.
         </p>

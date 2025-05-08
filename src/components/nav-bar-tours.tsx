@@ -26,7 +26,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from './ui/accordion';
-import { Abel } from 'next/font/google';
 
 const splitJoin = (text: string) => {
   return text.toLowerCase().split(' ').join('-');
