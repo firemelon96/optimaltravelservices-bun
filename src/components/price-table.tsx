@@ -27,7 +27,7 @@ type Prop = {
     type: string;
     amount: number;
     promo?: number;
-    description: string;
+    description?: string;
   }[];
 };
 
@@ -46,9 +46,11 @@ export const PriceTable = ({ pricing }: Prop) => {
           <TableRow key={price.type}>
             <TableCell className='font-medium'>
               {price.type}{' '}
-              <span className='text-muted-foreground'>
-                ({price.description})
-              </span>
+              {price?.description && (
+                <span className='text-muted-foreground'>
+                  ({price.description})
+                </span>
+              )}
             </TableCell>
             <TableCell className='text-right'>
               {price.promo ? (

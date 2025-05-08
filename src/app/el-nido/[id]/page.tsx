@@ -1,6 +1,7 @@
 import { BookForm } from '@/components/book-form';
 import { HeroCarousel } from '@/components/hero-carousel';
 import { PriceTable } from '@/components/price-table';
+import { PricingTable } from '@/components/pricing-table';
 import { tours } from '@/data/tours';
 import { cn, getTour } from '@/lib/utils';
 import { Metadata } from 'next';
@@ -93,6 +94,12 @@ const SinglePage = async ({ params }: Props) => {
           <div className='p-6 border'>
             <PriceTable pricing={tour.pricing} />
           </div>
+
+          {tour.pricingTable && (
+            <div className='p-6 border bg-[#4fafaf]/10'>
+              <PricingTable pricingTable={tour.pricingTable} />
+            </div>
+          )}
           <div className='max-w-md mx-auto my-10'>
             <BookForm
               title={tour.title}

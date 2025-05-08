@@ -14,7 +14,7 @@ interface CardProps {
     type: string;
     amount: number;
     promo?: number;
-    description: string;
+    description?: string;
     currency: string;
   }[];
 }
