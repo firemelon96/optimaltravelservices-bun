@@ -33,6 +33,7 @@ export const tours = [
           'Mitras Ranch',
           'Bakers Hill',
           'Palawan Wildlife Rescue and Conservation Center (Crocodile Farm)',
+          'Butterfly Garden',
         ],
         day: 1,
       },
@@ -335,10 +336,10 @@ export const tours = [
       'End time/place: 10:00 PM Philippine Time/Returns to original departure point',
     ],
     images: [
-      'https://cdn.palawanwebsolutions.com/firefly-watching/Iwahig-Firefly-Watching-boat.webp',
-      'https://cdn.palawanwebsolutions.com/firefly-watching/Iwahig-Firefly-Watching.webp',
-      'https://cdn.palawanwebsolutions.com/firefly-watching/Mangrove-Forest-Iwahig-Firefly-Watching.webp',
-      'https://cdn.palawanwebsolutions.com/firefly-watching/firefly-palawan.webp',
+      'https://cdn.palawanwebsolutions.com/firefly-watching/firefly-img.jpg',
+      'https://cdn.palawanwebsolutions.com/firefly-watching/Firefly-Watching.jpg',
+      'https://cdn.palawanwebsolutions.com/firefly-watching/kito.jpg',
+      'https://cdn.palawanwebsolutions.com/firefly-watching/kitu2.jpg',
     ],
   },
   //puerto package
@@ -541,7 +542,8 @@ export const tours = [
     pricing: [
       {
         type: 'joiner',
-        amount: 1400,
+        amount: 1200,
+        promo: 1000,
         currency: 'PHP',
         description: 'Joiner tour per person',
       },
@@ -595,6 +597,7 @@ export const tours = [
       {
         type: 'joiner',
         amount: 1300,
+        promo: 1100,
         currency: 'PHP',
         description: 'Joiner tour per person',
       },
@@ -647,7 +650,8 @@ export const tours = [
     pricing: [
       {
         type: 'joiner',
-        amount: 1600,
+        amount: 1400,
+        promo: 1250,
         currency: 'PHP',
         description: 'Joiner tour per person',
       },
@@ -701,6 +705,7 @@ export const tours = [
       {
         type: 'joiner',
         amount: 1200,
+        promo: 1000,
         currency: 'PHP',
         description: 'Joiner tour per person',
       },

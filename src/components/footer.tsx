@@ -24,7 +24,7 @@ export const Footer = () => {
               </div>
               <div>
                 <p className='text-xl font-semibold text-white'>
-                  (+63)960-353-9898
+                  (+63)960-353-9898 / (+63)935-688-8807
                 </p>
               </div>
             </div>
