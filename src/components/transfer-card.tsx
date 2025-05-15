@@ -30,7 +30,13 @@ export const TransferCard = ({
     <Card className='p-1'>
       <div className=' w-full gap-2 p-2 space-y-2'>
         <div className='relative h-60 w-full overflow-hidden rounded-md'>
-          <Image src={image} fill alt={title} className='object-cover' />
+          <Image
+            src={image}
+            unoptimized
+            fill
+            alt={title}
+            className='object-cover'
+          />
         </div>
         <div className='w-full '>
           <p className='text-muted-foreground text-xs '>
