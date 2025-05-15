@@ -46,6 +46,7 @@ export function HeroCarousel({ images, className }: Props) {
               fill
               className='object-cover'
               priority={index === 0}
+              unoptimized
             />
           </CarouselItem>
         ))}
