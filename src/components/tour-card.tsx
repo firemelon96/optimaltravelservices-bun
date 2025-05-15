@@ -11,11 +11,9 @@ interface CardProps {
   id: string;
   description: string;
   pricing: {
-    type: string;
-    amount: number;
+    traveller_type: string;
+    price: number;
     promo?: number;
-    description?: string;
-    currency: string;
   }[];
 }
 
@@ -28,7 +26,7 @@ export const TourCard = ({
   pricing,
 }: CardProps) => {
   const name = address.toLowerCase().split(',')[0].split(' ').join('-');
-  const initialPrice = pricing[0].amount;
+  const initialPrice = pricing[0].price;
   const promoPrice = pricing[0].promo;
   return (
     <Card className='p-1'>

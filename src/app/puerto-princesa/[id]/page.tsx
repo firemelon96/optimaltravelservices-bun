@@ -1,6 +1,6 @@
 import { BookForm } from '@/components/book-form';
 import { HeroCarousel } from '@/components/hero-carousel';
-import { PriceTable } from '@/components/price-table';
+import { DynamicTable } from '@/components/dynamic-table';
 import { tours } from '@/data/tours';
 import { cn, getTour } from '@/lib/utils';
 import { Metadata } from 'next';
@@ -101,7 +101,7 @@ const SinglePage = async ({ params }: Props) => {
             </ul>
           </div>
           <div className='p-6 border'>
-            <PriceTable pricing={tour.pricing} />
+            <DynamicTable title='Pricing Table' data={tour.pricing} />
           </div>
           <div className='max-w-md mx-auto my-10'>
             <BookForm

@@ -28,3 +28,10 @@ export function formatCurrency(price: number) {
     maximumFractionDigits: 0,
   }).format(price);
 }
+
+export const splitAndUppercase = (text: string) => {
+  return text
+    .split('_')
+    .map((str) => str.charAt(0).toUpperCase() + str.slice(1))
+    .join(' ');
+};
