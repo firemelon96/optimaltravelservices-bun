@@ -2514,7 +2514,7 @@ export const tours = [
     pricing: [
       {
         traveller_type: 'joiner',
-        price: 8500,
+        price: 13000,
       },
       {
         traveller_type: 'private',
@@ -2581,7 +2581,7 @@ export const tours = [
     pricing: [
       {
         traveller_type: 'joiner',
-        price: 7500,
+        price: 12000,
       },
       {
         traveller_type: 'private',
