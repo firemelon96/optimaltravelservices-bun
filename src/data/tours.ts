@@ -1,4 +1,217 @@
 export const tours = [
+  //new entry
+
+  {
+    id: 'puerto-princesa-elnido-5d4n-package',
+    title: '5D4N Puerto Princesa + El Nido Tour Package',
+    destination: 'Puerto Princesa',
+    type: 'package tour',
+    duration: '5 Days 4 Nights',
+    description:
+      "Explore the best of Puerto Princesa and El Nido in this 5-day, 4-night adventure. Visit the world-famous Underground River, enjoy the scenic city, and take a boat tour through El Nido's breathtaking lagoons and beaches.",
+    inclusions: [
+      '2 nights accommodation in Puerto Princesa',
+      '2 nights accommodation in El Nido',
+      'Underground River Tour with permits and buffet lunch',
+      'El Nido Island Hopping Tour A (shared boat)',
+      'Puerto Princesa City Tour',
+      'Daily breakfast',
+      'Roundtrip van transfers between Puerto Princesa and El Nido',
+      'Roundtrip airport transfers in Puerto Princesa',
+      'Licensed local tour guide',
+      'All entrance and environmental fees',
+    ],
+    exclusions: [
+      'Airfare to/from Puerto Princesa',
+      'Dinners and personal expenses',
+      'Travel insurance',
+      'El Nido Eco-Tourism Development Fee (₱200/pax)',
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: 'Arrival + Puerto Princesa City Tour',
+        activities: [
+          'Arrive in Puerto Princesa.',
+          'Afternoon city tour visiting Plaza Cuartel, Baywalk, Crocodile Farm, Bakers Hill, and Mitras Ranch.',
+          'Plaza Cuartel',
+          'Immaculate Conception Cathedral',
+          'Baywalk',
+          'Palawan Wildlife Rescue Center',
+          "Baker's Hill",
+          "Mitra's Ranch",
+          'Hotel check-in after the tour.',
+        ],
+      },
+      {
+        day: 2,
+        title: 'Underground River Tour',
+        activities: [
+          'Early transfer to Sabang for the UNESCO Underground River Tour.',
+          'Includes paddle boat ride, park permits, and buffet lunch.',
+          'Sabang',
+          'Underground River',
+          'Return to hotel late afternoon.',
+        ],
+      },
+      {
+        day: 3,
+        title: 'Travel to El Nido',
+        activities: [
+          'Check out from Puerto Princesa hotel. Shared van transfer to El Nido (5–6 hours).',
+          'Check-in to hotel in El Nido. Free time to explore town or relax on the beach.',
+        ],
+      },
+      {
+        day: 4,
+        title: 'El Nido Island Hopping Tour A',
+        activities: [
+          'Small Lagoon',
+          'Big Lagoon',
+          'Shimizu Island',
+          'Secret Lagoon',
+          '7 Commandos Beach',
+        ],
+      },
+      {
+        day: 5,
+        title: 'Return to Puerto Princesa / Departure',
+        activities: [
+          'Check out from El Nido hotel.',
+          'Early van transfer to Puerto Princesa for flight.',
+          'Travel time is approximately 5–6 hours.',
+        ],
+      },
+    ],
+    pricing: [
+      {
+        traveller_type: 'joiner',
+        price: 11500,
+      },
+      {
+        traveller_type: 'private',
+        price: 42800,
+      },
+    ],
+    importantNotes: [
+      'Itinerary may adjust based on flight schedules or weather conditions.',
+      'Permits for Underground River should be arranged at least 3–5 days before the tour date.',
+      'Accommodation upgrades and optional private tours available upon request.',
+    ],
+    images: [
+      'https://cdn.palawanwebsolutions.com/city-tour/balayong.avif',
+      'https://cdn.palawanwebsolutions.com/city-tour/baywalk.avif',
+      'https://cdn.palawanwebsolutions.com/city-tour/cathedral.avif',
+      'https://cdn.palawanwebsolutions.com/city-tour/church.avif',
+      'https://cdn.palawanwebsolutions.com/underground-river/ur1.avif',
+      'https://cdn.palawanwebsolutions.com/underground-river/ur2.avif',
+      'https://cdn.palawanwebsolutions.com/underground-river/ur3.avif',
+      'https://cdn.palawanwebsolutions.com/elnido-tour-a/big-lagoon.avif',
+      'https://cdn.palawanwebsolutions.com/elnido-tour-a/shimizu-island.avif',
+      'https://cdn.palawanwebsolutions.com/elnido-tour-a/7-commandos.avif',
+      'https://cdn.palawanwebsolutions.com/elnido-tour-a/payong-payong.avif',
+      'https://cdn.palawanwebsolutions.com/elnido-tour-a/secret-lagoon.avif',
+    ],
+  },
+  {
+    id: 'puerto-princesa-4d3n-package',
+    title: '4D3N Puerto Princesa Tour Package',
+    destination: 'Puerto Princesa',
+    type: 'package tour',
+    duration: '4 Days 3 Nights',
+    description:
+      'Discover the best of Puerto Princesa in 4 days and 3 nights — from the world-famous Underground River to stunning islands of Honda Bay and a charming city tour.',
+    inclusions: [
+      '3 nights accommodation in Puerto Princesa (standard room)',
+      'Underground River Tour with permits and buffet lunch',
+      'Honda Bay Island Hopping Tour with lunch',
+      'Puerto Princesa City Tour (shared)',
+      'Daily breakfast',
+      'Roundtrip airport transfers',
+      'All entrance and environmental fees',
+      'Licensed tour guide',
+      'Hotel pick-up and drop-off (within city proper)',
+    ],
+    exclusions: [
+      'Airfare to/from Puerto Princesa',
+      'Dinners and personal expenses',
+      'Travel insurance',
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: 'Arrival + Puerto Princesa City Tour',
+        activities: [
+          'Plaza Cuartel',
+          'Immaculate Conception Cathedral',
+          'Baywalk',
+          'Palawan Wildlife Rescue Center',
+          "Baker's Hill",
+          "Mitra's Ranch",
+        ],
+      },
+      {
+        day: 2,
+        title: 'Underground River Tour',
+        activities: [
+          'Early morning departure for Sabang.',
+          'Take a paddle boat to explore the Underground River — a UNESCO World Heritage Site.',
+          'Buffet lunch included. Return to hotel by late afternoon.',
+          'Sabang Wharf',
+          'Underground River',
+        ],
+      },
+      {
+        day: 3,
+        title: 'Honda Bay Island Hopping',
+        activities: [
+          'Enjoy swimming, snorkeling, and beach time. Lunch provided.',
+          'Island hopping adventure visiting Starfish Island, Luli Island, and Cowrie Island.',
+          'Starfish Island',
+          'Luli Island',
+          'Cowrie Island',
+          'Return to hotel in the afternoon.',
+        ],
+      },
+      {
+        day: 4,
+        title: 'Departure',
+        activities: [
+          'Breakfast at hotel, check out, and transfer to Puerto Princesa Airport for your departure flight.',
+        ],
+      },
+    ],
+    pricing: [
+      {
+        traveller_type: 'joiner',
+        price: 7800,
+      },
+      {
+        traveller_type: 'private',
+        price: 29900,
+      },
+    ],
+    importantNotes: [
+      'All tours are weather-permitting.',
+      'Itinerary sequence may change depending on flight arrival/departure times.',
+      'Underground River permits must be confirmed 3–5 days in advance.',
+    ],
+    images: [
+      'https://cdn.palawanwebsolutions.com/city-tour/baywalk.avif',
+      'https://cdn.palawanwebsolutions.com/city-tour/bakers.avif',
+      'https://cdn.palawanwebsolutions.com/city-tour/balayong.avif',
+      'https://cdn.palawanwebsolutions.com/city-tour/cathedral.avif',
+      'https://cdn.palawanwebsolutions.com/city-tour/church.avif',
+      'https://cdn.palawanwebsolutions.com/city-tour/crocodile.avif',
+      'https://cdn.palawanwebsolutions.com/honda-bay/cowrie.avif',
+      'https://cdn.palawanwebsolutions.com/honda-bay/cowrie2.avif',
+      'https://cdn.palawanwebsolutions.com/honda-bay/luli.avif',
+      'https://cdn.palawanwebsolutions.com/underground-river/ur1.avif',
+      'https://cdn.palawanwebsolutions.com/underground-river/ur2.avif',
+      'https://cdn.palawanwebsolutions.com/underground-river/ur3.avif',
+    ],
+  },
+
   {
     id: 'city-tour',
     title: 'City Tour',
@@ -2518,7 +2731,7 @@ export const tours = [
       },
       {
         traveller_type: 'private',
-        price: 38000,
+        price: 20500,
       },
     ],
     importantNotes: [
@@ -2585,7 +2798,7 @@ export const tours = [
       },
       {
         traveller_type: 'private',
-        price: 32000,
+        price: 19500,
       },
     ],
     importantNotes: [
