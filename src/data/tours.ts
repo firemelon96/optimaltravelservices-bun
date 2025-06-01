@@ -95,7 +95,7 @@ export const tours = [
     ],
     accomRates: [
       {
-        accommodation: 'Earl de princesa',
+        accommodation: 'Eerl De Princesa',
         rate: 9336,
       },
     ],
@@ -199,7 +199,7 @@ export const tours = [
     ],
     accomRates: [
       {
-        accommodation: 'Earl de princesa',
+        accommodation: 'Eerl De Princesa',
         rate: 6400,
       },
     ],
@@ -621,7 +621,7 @@ export const tours = [
     ],
     accomRates: [
       {
-        accommodation: 'Earl de princesa',
+        accommodation: 'Eerl De Princesa',
         rate: 5700,
       },
     ],
