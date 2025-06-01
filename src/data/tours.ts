@@ -25,7 +25,7 @@ export const tours = [
       'Airfare to/from Puerto Princesa',
       'Dinners and personal expenses',
       'Travel insurance',
-      'El Nido Eco-Tourism Development Fee (₱200/pax)',
+      'El Nido Eco-Tourism Development Fee (₱400/pax)',
     ],
     itinerary: [
       {
@@ -91,6 +91,12 @@ export const tours = [
       {
         traveller_type: 'private',
         price: 42800,
+      },
+    ],
+    accomRates: [
+      {
+        accommodation: 'Earl de princesa',
+        rate: 9336,
       },
     ],
     importantNotes: [
@@ -189,6 +195,12 @@ export const tours = [
       {
         traveller_type: 'private',
         price: 29900,
+      },
+    ],
+    accomRates: [
+      {
+        accommodation: 'Earl de princesa',
+        rate: 6400,
       },
     ],
     importantNotes: [
@@ -605,6 +617,12 @@ export const tours = [
       {
         traveller_type: 'private',
         price: 4700,
+      },
+    ],
+    accomRates: [
+      {
+        accommodation: 'Earl de princesa',
+        rate: 5700,
       },
     ],
     // accommodations: [

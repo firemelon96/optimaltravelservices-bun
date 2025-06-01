@@ -5,6 +5,7 @@ import { tours } from '@/data/tours';
 import { cn, getTour } from '@/lib/utils';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { AccomRates } from '@/components/accom-rates';
 
 export async function generateStaticParams() {
   return tours.map(({ id }) => ({ id }));
@@ -103,6 +104,11 @@ const SinglePage = async ({ params }: Props) => {
           <div className='p-6 border'>
             <DynamicTable title='Pricing Table' data={tour.pricing} />
           </div>
+          {tour.accomRates && (
+            <div className='p-6 border bg-[#4fafaf]/10'>
+              <AccomRates accomRates={tour.accomRates} />
+            </div>
+          )}
           <div className='max-w-md mx-auto my-10'>
             <BookForm
               isPackage={tour.type === 'package tour'}
